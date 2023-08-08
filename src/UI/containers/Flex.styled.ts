@@ -7,7 +7,7 @@ interface FlexProps {
   spaceBetween?: boolean
   flxEnd?: boolean
   gap?: string
-
+  width?: string
   direction?: 'row' | 'column'
   children: ReactNode
 }
@@ -27,6 +27,7 @@ export const Flex = styled.div<FlexProps>`
   flex-direction: ${({ direction }) => direction || 'row'};
   align-items: center;
   gap: ${({ gap }) => gap || '0'};
+  width: ${({ width }) => width || ''};
 `
 
 // ${({ center }) => center && flexCenter}

@@ -22,7 +22,15 @@ export default createGlobalStyle`
     text-decoration: none;
     color: inherit;
   }
+  
+  input, button {
+    outline: none;
+  }
 
+  button {
+    cursor: pointer;
+    border: 0;
+  }
   #root {
     height: 100%;
   }
