@@ -4,7 +4,7 @@ import { Avatar } from 'components/avatar'
 import { Wrapper } from './Header.styled'
 
 const Header = () => {
-  const { userLogout } = useUserReducer()
+  const { userData, userLogout } = useUserReducer()
   const title = useGetPageHeading()
 
   return (
@@ -12,7 +12,7 @@ const Header = () => {
       <Typography variant="h3" fontWeight={500}>
         {title}
       </Typography>
-      <Avatar username="Username" onClick={() => userLogout()} />
+      <Avatar username={userData.email} onClick={() => userLogout()} />
     </Wrapper>
   )
 }

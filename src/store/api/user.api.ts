@@ -2,8 +2,6 @@ import { UserLoginRequestType, UserLoginResponseType, UserType } from 'types'
 import { loginUser } from 'store'
 import { api } from './api'
 import { API_USER_ENDPOINTS } from './utils'
-import { FetchBaseQueryError } from '@reduxjs/toolkit/query'
-import { SerializedError } from '@reduxjs/toolkit'
 
 export const usersApi = api.injectEndpoints({
   endpoints: (builder) => ({
@@ -20,7 +18,14 @@ export const usersApi = api.injectEndpoints({
         }
       },
     }),
+    createUser: builder.mutation<UserType, UserType>({
+      query: (body) => ({
+        url: API_USER_ENDPOINTS.SIGN_UP,
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 })
 
-export const { useLoginMutation } = usersApi
+export const { useLoginMutation, useCreateUserMutation } = usersApi

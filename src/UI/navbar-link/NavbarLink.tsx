@@ -16,7 +16,7 @@ const NavbarLink: FC<NavbarLinkProps> = ({ path, children }) => {
   }, [pathname, path])
 
   return (
-    <NavLink active={isActive} to={path}>
+    <NavLink active={isActive ? 'active' : ''} to={path}>
       {children}
     </NavLink>
   )

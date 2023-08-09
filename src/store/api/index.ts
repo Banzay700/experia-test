@@ -1,3 +1,3 @@
 export { api } from './api'
 
-export { useLoginMutation } from './user.api'
+export { useLoginMutation, useCreateUserMutation } from './user.api'

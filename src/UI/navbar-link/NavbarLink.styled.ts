@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
 
 interface NavLinkProps {
-  active: boolean
+  active?: string
 }
 
 const activeStyle = css`
