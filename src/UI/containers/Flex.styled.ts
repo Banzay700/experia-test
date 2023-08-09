@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 
 interface FlexProps {
   flxStart?: boolean
+  flxCentre?: boolean
   gap?: string
   width?: string
   height?: string
@@ -15,6 +16,11 @@ const flexStart = css`
   align-items: center;
 `
 
+const flexCentre = css`
+  justify-content: center;
+  align-items: center;
+`
+
 export const Flex = styled.div<FlexProps>`
   display: flex;
   flex-direction: ${({ direction }) => direction || 'row'};
@@ -22,4 +28,5 @@ export const Flex = styled.div<FlexProps>`
   width: ${({ width }) => width || ''};
   height: ${({ height }) => height || ''};
   ${({ flxStart }) => flxStart && flexStart}
+  ${({ flxCentre }) => flxCentre && flexCentre}
 `

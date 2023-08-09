@@ -1,0 +1,5 @@
+export { ReactComponent as User } from './user.svg'
+export { ReactComponent as Share } from './share.svg'
+export { ReactComponent as Gear } from './gear.svg'
+export { ReactComponent as Shield } from './shield.svg'
+export { ReactComponent as Play } from './play.svg'

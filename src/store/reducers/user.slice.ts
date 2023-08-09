@@ -4,7 +4,7 @@ import { setJwtCookie, deleteJwtCookie } from 'utils'
 
 const defaultUserState: UserType = {
   name: '',
-  email: '',
+  email: 'testuser@mail.com',
   password: '',
 }
 

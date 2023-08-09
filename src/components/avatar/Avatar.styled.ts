@@ -4,8 +4,8 @@ export const AvatarIconWrapper = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background-color: ${({ theme }) => theme.background.darkBlue};
   color: ${({ theme }) => theme.palette.white};

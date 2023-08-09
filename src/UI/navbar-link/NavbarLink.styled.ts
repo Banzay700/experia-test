@@ -11,8 +11,8 @@ const activeStyle = css`
 `
 
 export const NavLink = styled(Link)<NavLinkProps>`
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;

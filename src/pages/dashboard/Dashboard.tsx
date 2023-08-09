@@ -1,7 +1,12 @@
-import { Container, Flex } from 'UI/containers'
+import { Flex } from 'UI/containers'
+import { DashboardLabels } from 'components'
 
 const Dashboard = () => {
-  return <div>Dashboard</div>
+  return (
+    <Flex direction="column" gap="16px">
+      <DashboardLabels />
+    </Flex>
+  )
 }
 
 export default Dashboard
