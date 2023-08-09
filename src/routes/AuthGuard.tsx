@@ -1,5 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import { Navigate, useLocation } from 'react-router-dom'
+import { useUserReducer } from 'hooks'
+
 import { ROUTES } from './utils'
 
 interface AuthGuardProps {
@@ -8,9 +10,9 @@ interface AuthGuardProps {
 
 const AuthGuard: FC<AuthGuardProps> = ({ children }) => {
   const location = useLocation()
-  const auth = true
+  const { isAuthUser } = useUserReducer()
 
-  if (!auth) {
+  if (!isAuthUser) {
     return <Navigate to={ROUTES.LOGIN} state={{ from: location }} />
   }
 

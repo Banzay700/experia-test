@@ -10,7 +10,7 @@ interface FlexProps {
   children: ReactNode
 }
 
-const flexEnd = css`
+const flexStart = css`
   justify-content: flex-start;
   align-items: center;
 `
@@ -21,5 +21,5 @@ export const Flex = styled.div<FlexProps>`
   gap: ${({ gap }) => gap || ''};
   width: ${({ width }) => width || ''};
   height: ${({ height }) => height || ''};
-  ${({ flxStart }) => flxStart && flexEnd}
+  ${({ flxStart }) => flxStart && flexStart}
 `

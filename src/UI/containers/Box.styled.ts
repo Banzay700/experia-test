@@ -5,5 +5,5 @@ interface BoxProps {
 }
 
 export const Box = styled.div<BoxProps>`
-  background-color: ${({ background, theme }) => background || theme.backgrounds.primary};
+  background-color: ${({ background, theme }) => background || theme.background.primary};
 `

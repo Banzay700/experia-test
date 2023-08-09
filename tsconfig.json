@@ -21,6 +21,7 @@
       "components/*": ["components/*"],
       "pages/*": ["pages/*"],
       "routes/*": ["routes/*"],
+      "hooks/*": ["hooks/*"],
       "store/*": ["store/*"],
       "styles/*": ["styles/*"],
       "types/*": ["types/*"],

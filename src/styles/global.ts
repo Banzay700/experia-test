@@ -13,9 +13,9 @@ export default createGlobalStyle`
 
   body {
     height: 100%;
-    font-family: ${({ theme }) => theme.fonts.primary};
-    background-color: ${({ theme }) => theme.backgrounds.primary}; 
-    color: ${({ theme }) => theme.colors.white};
+    font-family: ${({ theme }) => theme.font.primary};
+    background-color: ${({ theme }) => theme.background.primary}; 
+    color: ${({ theme }) => theme.palette.white};
   }
 
   a {

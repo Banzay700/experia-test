@@ -1,16 +1,18 @@
-import { useLocation } from 'react-router-dom'
 import { Typography } from 'UI'
+import { useGetPageHeading, useUserReducer } from 'hooks'
+import { Avatar } from 'components/avatar'
 import { Wrapper } from './Header.styled'
 
 const Header = () => {
-  const { pathname } = useLocation()
-  const title = pathname.replace('/', '').toUpperCase()
+  const { userLogout } = useUserReducer()
+  const title = useGetPageHeading()
 
   return (
     <Wrapper>
       <Typography variant="h3" fontWeight={500}>
         {title}
       </Typography>
+      <Avatar username="Username" onClick={() => userLogout()} />
     </Wrapper>
   )
 }

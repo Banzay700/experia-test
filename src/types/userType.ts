@@ -3,3 +3,13 @@ export type UserType = {
   email: string
   password: string
 }
+
+export type UserLoginResponseType = {
+  token: string
+  message: UserType
+}
+
+export type UserLoginRequestType = {
+  email: string
+  password: string
+}

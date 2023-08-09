@@ -1,7 +1,7 @@
 export const baseTheme = {
-  colors: {
-    primary: '',
-    secondary: '',
+  palette: {
+    primary: '#8941FF',
+    secondary: '#3CDC86',
     white: '#fff',
     black: '',
     lightGray: '#7D869E',
@@ -10,24 +10,37 @@ export const baseTheme = {
     lightBlue: '#78B4ED',
     error: '#ab2a2a',
   },
-  backgrounds: {
+  background: {
     primary: '#242731',
     secondary: '#111216',
     darkBlue: '#191C23',
     accent: '#8941FF',
     accentHover: '#733aef',
   },
-  fonts: {
+  font: {
     primary: 'Metropolis, sans-serif',
   },
   border: {
     primary: '#3d4250',
     primaryHover: '#4e5466',
   },
-  fontSizes: {
-    small: '1rem',
-    medium: '1.5rem',
-    large: '2rem',
+  typography: {
+    h1: {
+      fontSize: '48px',
+      lineHeight: '56px',
+    },
+    h3: {
+      fontSize: '20px',
+      lineHeight: '28px',
+    },
+    h5: {
+      fontSize: '15px',
+      lineHeight: '24px',
+    },
+    h6: {
+      fontSize: '14px',
+      lineHeight: '20px',
+    },
   },
 }
 

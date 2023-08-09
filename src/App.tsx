@@ -45,12 +45,18 @@ function App() {
     <>
       <GlobalStyles />
       <Routes>
-        <Route path="/" element={<Layout />}>
+        <Route
+          path="/"
+          element={
+            <AuthGuard>
+              <Layout />
+            </AuthGuard>
+          }>
           {ROUTES_MAP.map(({ path, element }) => (
-            <Route key={path} path={path} element={<AuthGuard>{element}</AuthGuard>} />
+            <Route key={path} path={path} element={element} />
           ))}
         </Route>
-        <Route path="login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

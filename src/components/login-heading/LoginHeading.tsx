@@ -8,14 +8,14 @@ interface LoginHeadingProps {
 }
 
 const LoginHeading: FC<LoginHeadingProps> = ({ isSignUp }) => {
-  const { colors } = useTheme()
+  const { palette } = useTheme()
 
   return (
     <Flex direction="column" gap="8px">
       <Typography variant="h1" align="center" fontWeight={500}>
         {isSignUp ? 'Welcome back' : 'Welcome'}
       </Typography>
-      <Typography variant="h5" align="center" fontWeight={500} color={colors.gray}>
+      <Typography variant="h5" align="center" fontWeight={500} color={palette.gray}>
         {isSignUp
           ? 'Welcome back! Please enter your details'
           : 'Welcome! Please enter your details'}

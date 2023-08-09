@@ -9,8 +9,8 @@ export const StyledInput = styled.input`
   padding: 10px 16px;
   border-radius: 8px;
   border: 1px solid ${({ theme }) => theme.border.primary};
-  background-color: ${({ theme }) => theme.backgrounds.primary};
-  color: ${({ theme }) => theme.colors.darkGray};
+  background-color: ${({ theme }) => theme.background.primary};
+  color: ${({ theme }) => theme.palette.darkGray};
   font-weight: 400;
   line-height: 24px;
   width: 100%;
@@ -18,8 +18,8 @@ export const StyledInput = styled.input`
   font-size: 15px;
   transition: border-color 0.2s ease-in-out;
   &::placeholder {
-    font-family: ${({ theme }) => theme.fonts.primary};
-    color: ${({ theme }) => theme.colors.darkGray};
+    font-family: ${({ theme }) => theme.font.primary};
+    color: ${({ theme }) => theme.palette.darkGray};
   }
 
   &:focus {
@@ -32,5 +32,5 @@ export const Error = styled.p`
   bottom: -12px;
   left: 0;
   font-size: 10px;
-  color: ${({ theme }) => theme.colors.error};
+  color: ${({ theme }) => theme.palette.error};
 `
