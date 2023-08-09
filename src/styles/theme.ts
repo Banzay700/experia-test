@@ -3,8 +3,8 @@ export const baseTheme = {
     primary: '#8941FF',
     secondary: '#3CDC86',
     white: '#fff',
+    darkWhite: '#FFFFFF99',
     black: '',
-
     gray: '#9496A6',
     lightSlateGrey: '#A2A4A8',
     lightGray: '#7D869E',
@@ -39,6 +39,10 @@ export const baseTheme = {
       fontSize: '20px',
       lineHeight: '28px',
     },
+    h4: {
+      fontSize: '18px',
+      lineHeight: '24px',
+    },
     h5: {
       fontSize: '15px',
       lineHeight: '24px',
@@ -49,6 +53,10 @@ export const baseTheme = {
     },
     subtitle1: {
       fontSize: '13px',
+      lineHeight: '15px',
+    },
+    subtitle2: {
+      fontSize: '12px',
       lineHeight: '16px',
     },
   },

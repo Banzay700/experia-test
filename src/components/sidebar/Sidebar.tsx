@@ -4,7 +4,7 @@ import { Nav } from './nav'
 
 const Sidebar = () => {
   return (
-    <SidebarWrapper>
+    <SidebarWrapper direction="column" gap="46px">
       <Logo />
       <Nav />
     </SidebarWrapper>

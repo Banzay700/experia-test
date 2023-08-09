@@ -4,7 +4,10 @@ import { Box, BoxProps } from './Box.styled'
 
 interface FlexProps extends BoxProps {
   flxStart?: boolean
-  flxCentre?: boolean
+  flxCenter?: boolean
+  flxBetween?: boolean
+  maxWidth?: string
+  maxHeight?: string
   flex?: number
   gap?: string
   width?: string
@@ -23,13 +26,21 @@ const flexCentre = css`
   align-items: center;
 `
 
+const flexBetween = css`
+  justify-content: space-between;
+  align-items: center;
+`
+
 export const Flex = styled(Box)<FlexProps>`
   display: flex;
   flex-direction: ${({ direction }) => direction || 'row'};
   gap: ${({ gap }) => gap || ''};
   width: ${({ width }) => width || ''};
   height: ${({ height }) => height || ''};
+  max-width: ${({ maxWidth }) => maxWidth || ''};
+  max-height: ${({ maxHeight }) => maxHeight || ''};
   flex: ${({ flex }) => flex || ''};
   ${({ flxStart }) => flxStart && flexStart}
-  ${({ flxCentre }) => flxCentre && flexCentre}
+  ${({ flxCenter }) => flxCenter && flexCentre}
+  ${({ flxBetween }) => flxBetween && flexBetween}
 `

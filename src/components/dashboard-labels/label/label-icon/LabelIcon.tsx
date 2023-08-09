@@ -8,7 +8,7 @@ interface LabelIconProps {
 
 const LabelIcon: FC<LabelIconProps> = ({ icon, background }) => {
   return (
-    <IconWrapper flxCentre backgroundColor={background}>
+    <IconWrapper flxCenter backgroundColor={background}>
       {icon}
     </IconWrapper>
   )
