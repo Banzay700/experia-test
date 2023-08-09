@@ -5,7 +5,7 @@ import { Box, BoxProps } from './Box.styled'
 interface FlexProps extends BoxProps {
   flxStart?: boolean
   flxCentre?: boolean
-  flxGrow?: number
+  flex?: number
   gap?: string
   width?: string
   height?: string
@@ -29,7 +29,7 @@ export const Flex = styled(Box)<FlexProps>`
   gap: ${({ gap }) => gap || ''};
   width: ${({ width }) => width || ''};
   height: ${({ height }) => height || ''};
-  flex-grow: ${({ flxGrow }) => flxGrow || ''};
+  flex: ${({ flex }) => flex || ''};
   ${({ flxStart }) => flxStart && flexStart}
   ${({ flxCentre }) => flxCentre && flexCentre}
 `

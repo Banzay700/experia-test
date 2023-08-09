@@ -10,12 +10,13 @@ export const setJwtCookie = (token: string, daysToExpire: number) => {
 
 export const getJwtFromCookie = () => {
   const cookies = document.cookie.split(';')
-  for (let cookie of cookies) {
-    const [cookieName, cookieValue] = cookie.trim().split('=')
-    if (cookieName === 'jwt') {
-      return decodeURIComponent(cookieValue)
-    }
+  const jwtCookie = cookies.find((cookie) => cookie.trim().startsWith('jwt='))
+
+  if (jwtCookie) {
+    const [, cookieValue] = jwtCookie.split('=')
+    return decodeURIComponent(cookieValue)
   }
+
   return null
 }
 

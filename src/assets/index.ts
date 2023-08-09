@@ -1,1 +1,1 @@
-export * as DashboardIcons from './dashboard-icons'
+export * as DashboardIcon from './dashboard-icons'
