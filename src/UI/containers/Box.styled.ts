@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 
-export const Box = styled.div`
-  background-color: ${({ theme }) => theme.backgrounds.primary};
+interface BoxProps {
+  background?: string
+}
+
+export const Box = styled.div<BoxProps>`
+  background-color: ${({ background, theme }) => background || theme.backgrounds.primary};
 `

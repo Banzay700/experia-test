@@ -16,10 +16,14 @@ export const StyledInput = styled.input`
   width: 100%;
   height: 64px;
   font-size: 15px;
-
+  transition: border-color 0.2s ease-in-out;
   &::placeholder {
     font-family: ${({ theme }) => theme.fonts.primary};
     color: ${({ theme }) => theme.colors.darkGray};
+  }
+
+  &:focus {
+    border: 1px solid ${({ theme }) => theme.border.primaryHover};
   }
 `
 

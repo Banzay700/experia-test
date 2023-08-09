@@ -13,10 +13,12 @@ const LoginHeading: FC<LoginHeadingProps> = ({ isSignUp }) => {
   return (
     <Flex direction="column" gap="8px">
       <Typography variant="h1" align="center" fontWeight={500}>
-        Welcome back
+        {isSignUp ? 'Welcome back' : 'Welcome'}
       </Typography>
       <Typography variant="h5" align="center" fontWeight={500} color={colors.gray}>
-        Welcome back! Please enter your details
+        {isSignUp
+          ? 'Welcome back! Please enter your details'
+          : 'Welcome! Please enter your details'}
       </Typography>
     </Flex>
   )

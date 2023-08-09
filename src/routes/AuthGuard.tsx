@@ -8,13 +8,13 @@ interface AuthGuardProps {
 
 const AuthGuard: FC<AuthGuardProps> = ({ children }) => {
   const location = useLocation()
-  const auth = false
+  const auth = true
 
   if (!auth) {
     return <Navigate to={ROUTES.LOGIN} state={{ from: location }} />
   }
 
-  return { children }
+  return <>{children}</>
 }
 
 export default AuthGuard
