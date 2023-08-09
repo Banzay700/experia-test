@@ -1,17 +1,14 @@
-import { useTheme } from 'styled-components'
 import { Outlet } from 'react-router-dom'
 import { Sidebar, Header } from 'components'
 import { Container, Flex } from 'UI/containers'
 
 const Layout = () => {
-  const { background } = useTheme()
-
   return (
     <Flex height="100%" flxStart>
       <Sidebar />
       <Flex direction="column" height="100%" width="100%">
         <Header />
-        <Container padding="24px 48px 28px 32px" background={background.secondary}>
+        <Container padding="24px 48px 28px 32px" background="secondary">
           <Outlet />
         </Container>
       </Flex>

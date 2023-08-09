@@ -8,7 +8,7 @@ import { LabelIcon } from './label-icon'
 const Label = () => {
   const { palette } = useTheme()
   return (
-    <Wrapper>
+    <Wrapper flxGrow={1}>
       <LabelIcon icon={<DashboardIcons.User />} />
       <Flex direction="column">
         <Typography variant="h2">14</Typography>

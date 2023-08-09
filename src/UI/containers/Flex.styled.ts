@@ -1,9 +1,11 @@
 import { ReactNode } from 'react'
 import styled, { css } from 'styled-components'
+import { Box, BoxProps } from './Box.styled'
 
-interface FlexProps {
+interface FlexProps extends BoxProps {
   flxStart?: boolean
   flxCentre?: boolean
+  flxGrow?: number
   gap?: string
   width?: string
   height?: string
@@ -21,12 +23,13 @@ const flexCentre = css`
   align-items: center;
 `
 
-export const Flex = styled.div<FlexProps>`
+export const Flex = styled(Box)<FlexProps>`
   display: flex;
   flex-direction: ${({ direction }) => direction || 'row'};
   gap: ${({ gap }) => gap || ''};
   width: ${({ width }) => width || ''};
   height: ${({ height }) => height || ''};
+  flex-grow: ${({ flxGrow }) => flxGrow || ''};
   ${({ flxStart }) => flxStart && flexStart}
   ${({ flxCentre }) => flxCentre && flexCentre}
 `

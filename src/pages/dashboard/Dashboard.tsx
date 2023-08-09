@@ -1,5 +1,5 @@
-import { Flex } from 'UI/containers'
 import { DashboardLabels } from 'components'
+import { Flex } from 'UI/containers'
 
 const Dashboard = () => {
   return (

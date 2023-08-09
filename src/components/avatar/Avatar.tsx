@@ -10,7 +10,7 @@ interface AvatarProps {
 }
 const Avatar: FC<AvatarProps> = ({ username, onClick }) => {
   return (
-    <Flex flxStart gap="12px" onClick={onClick}>
+    <Flex flxStart gap="12px" onClick={onClick} background="secondary">
       <AvatarIconWrapper>
         <AvatarIcon />
       </AvatarIconWrapper>
