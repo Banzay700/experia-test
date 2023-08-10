@@ -8,7 +8,7 @@ const DoughnutChart = () => {
   return (
     <Flex width="100%">
       <DataBlockHeader title="Game Stats">
-        <Dropdown data={mockData} viewType="radio" title="Naperville" subtitle="Location" />
+        <Dropdown data={mockData} viewType="radio" subtitle="Location" />
       </DataBlockHeader>
     </Flex>
   )

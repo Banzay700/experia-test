@@ -2,13 +2,13 @@ import { FC } from 'react'
 import { RadioInput, RadioWrapper } from './DropdownRadio.styled'
 
 interface DropdownRadioProps {
-  isOff: boolean
+  isChecked: boolean
 }
 
-const DropdownRadio: FC<DropdownRadioProps> = ({ isOff }) => {
+const DropdownRadio: FC<DropdownRadioProps> = ({ isChecked }) => {
   return (
-    <RadioWrapper isOff={isOff}>
-      <RadioInput isOff={isOff} />
+    <RadioWrapper isChecked={isChecked}>
+      <RadioInput isChecked={isChecked} />
     </RadioWrapper>
   )
 }

@@ -8,7 +8,7 @@ const BarChart = () => {
   return (
     <Flex width="100%">
       <DataBlockHeader title="Game Stats">
-        <Dropdown data={mockData} viewType="checkbox" title="Graph" subtitle="Data type" />
+        <Dropdown data={mockData} viewType="checkbox" subtitle="Data type" />
       </DataBlockHeader>
     </Flex>
   )

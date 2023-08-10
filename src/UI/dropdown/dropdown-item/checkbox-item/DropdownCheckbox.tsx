@@ -3,11 +3,11 @@ import { FC } from 'react'
 import { Flex } from 'UI/containers'
 
 interface DropdownCheckboxProps {
-  isOff: boolean
+  isChecked: boolean
 }
 
-const DropdownCheckbox: FC<DropdownCheckboxProps> = ({ isOff }) => {
-  return <Flex background="tertiary">{isOff && <DashboardIcon.Check />}</Flex>
+const DropdownCheckbox: FC<DropdownCheckboxProps> = ({ isChecked }) => {
+  return <Flex background="tertiary">{isChecked && <DashboardIcon.Check />}</Flex>
 }
 
 export default DropdownCheckbox

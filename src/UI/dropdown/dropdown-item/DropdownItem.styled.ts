@@ -3,7 +3,7 @@ import { DropdownViewType } from 'types'
 
 interface ItemWrapperProps {
   viewType: DropdownViewType
-  isOff?: boolean
+  isChecked?: boolean
 }
 
 const toggleItemStyles = css`
@@ -29,9 +29,9 @@ const checkboxItemStyles = css<ItemWrapperProps>`
 const checkboxLabelStyles = css<ItemWrapperProps>`
   padding: 12px 16px;
   border-radius: 4px;
-  background-color: ${({ isOff, theme }) =>
-    isOff ? theme.background.tertiary : theme.background.primary};
-  color: ${({ isOff, theme }) => (isOff ? theme.palette.white : theme.palette.gray)};
+  background-color: ${({ isChecked, theme }) =>
+    isChecked ? theme.background.tertiary : theme.background.primary};
+  color: ${({ isChecked, theme }) => (isChecked ? theme.palette.white : theme.palette.gray)};
 `
 
 export const ItemWrapper = styled.div<ItemWrapperProps>`

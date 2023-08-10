@@ -2,13 +2,13 @@ import { FC } from 'react'
 import { ToggleSlider, ToggleWrapper } from './DropdownToggle.styled'
 
 interface DropdownToggleProps {
-  isOff: boolean
+  isChecked: boolean
 }
 
-const DropdownToggle: FC<DropdownToggleProps> = ({ isOff }) => {
+const DropdownToggle: FC<DropdownToggleProps> = ({ isChecked }) => {
   return (
-    <ToggleWrapper isOff={isOff}>
-      <ToggleSlider isOff={isOff} />
+    <ToggleWrapper isChecked={isChecked}>
+      <ToggleSlider isChecked={isChecked} />
     </ToggleWrapper>
   )
 }

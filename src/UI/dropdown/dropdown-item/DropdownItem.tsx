@@ -6,33 +6,25 @@ import { DropdownRadio } from './radio-item'
 import DropdownCheckbox from './checkbox-item/DropdownCheckbox'
 
 interface DropdownItemProps {
-  type: DropdownItemType
   viewType: DropdownViewType
   title: string
   value: string
-  id: string
   name: string
   checked: boolean
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const DropdownItem: FC<DropdownItemProps> = (props) => {
-  const { type, viewType, title, value, id, name, checked, onChange } = props
+  const { viewType, title, value, name, checked, onChange } = props
 
   return (
-    <ItemWrapper viewType={viewType} isOff={checked}>
-      <DropdownItemLabel viewType={viewType} isOff={checked}>
-        {viewType === 'radio' && <DropdownRadio isOff={checked} />}
+    <ItemWrapper viewType={viewType} isChecked={checked}>
+      <DropdownItemLabel viewType={viewType} isChecked={checked}>
+        {viewType === 'radio' && <DropdownRadio isChecked={checked} />}
         {title}
-        <input
-          type={type}
-          value={value}
-          name={viewType === 'radio' ? 'radio' : name}
-          checked={checked}
-          onChange={onChange}
-        />
-        {viewType === 'toggle' && <DropdownToggle isOff={checked} />}
-        {viewType === 'checkbox' && <DropdownCheckbox isOff={checked} />}
+        <input type="checkbox" value={value} name={name} checked={checked} onChange={onChange} />
+        {viewType === 'toggle' && <DropdownToggle isChecked={checked} />}
+        {viewType === 'checkbox' && <DropdownCheckbox isChecked={checked} />}
       </DropdownItemLabel>
     </ItemWrapper>
   )
