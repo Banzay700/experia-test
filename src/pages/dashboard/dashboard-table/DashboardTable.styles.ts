@@ -4,28 +4,32 @@ export const TableWrapper = styled.div`
   display: flex;
   padding-top: 32px;
   width: 100%;
+  overflow-y: auto;
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.background.gray};
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.background.lightGray};
+    border-radius: 4px;
+  }
 `
 export const Table = styled.table`
   width: 100%;
+  border-collapse: collapse;
 `
-export const TableHeader = styled.th`
+export const TableHeaders = styled.tr`
   font-size: 11px;
   font-weight: 500;
   line-height: 12px;
-  padding: 10px;
+
+  padding-left: 30px;
   color: ${({ theme }) => theme.palette.darkWhite};
-  &:hover {
-    background-color: ${({ theme }) => theme.background.tertiary};
-  }
-`
-export const TableRow = styled.th`
-  font-size: 13px;
-  line-height: 20px;
-  height: 72px;
-  border: none;
-  &:hover {
-    background-color: ${({ theme }) => theme.background.tertiary};
-  }
 `
 
-export const TableCell = styled.td``
+export const TableCell = styled.td<{ align?: 'center' | 'left' }>`
+  text-align: ${({ align }) => align};
+`

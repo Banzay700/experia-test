@@ -18,7 +18,7 @@ const Dashboard = () => {
           <DoughnutChart />
         </DataContainer>
       </Flex>
-      <DataContainer flex={1}>
+      <DataContainer flex={1} maxHeight="480px">
         <DashboardTable />
       </DataContainer>
     </Flex>

@@ -1,73 +1,78 @@
+import { nanoid } from 'nanoid'
 import React from 'react'
-import { DashboardIcon } from 'assets/index'
-import { Dropdown } from 'UI/index'
+import { DashboardIcon } from 'assets'
+import { Dropdown } from 'UI'
 import { Flex } from 'UI/containers'
-import { DataBlockHeader } from 'components/data-block-header'
 
+import { DataBlockHeader } from 'components/data-block-header'
 import { tableHeaders } from './DashboardTable.utils'
-import {
-  Table,
-  TableHeader,
-  TableCell,
-  TableWrapper,
-  TableRow,
-} from 'pages/dashboard/dashboard-table/DashboardTable.styles'
+import { TableRow } from './table-row'
+import { Table, TableHeaders, TableCell, TableWrapper } from './DashboardTable.styles'
 
 const data = [
   {
     model: {
-      image: 'https://example.com/image1.jpg',
-      name: 'Model 1',
+      image: 'asdasd',
+      name: 'Pokémon Trading Card Game',
     },
-    card_name: 'Card A',
-    card_number: '1234 5678 9012 3456',
-    type: 'Type X',
-    limited: true,
-    operations: 10,
-    date: '2023-08-10',
-    rating: 4,
-    status: 'Active',
-    price: '$100.00',
+    card_name: 'Charizard Vmax 330',
+    card_number: '#5',
+    type: 'Amet minim',
+    limited: 4,
+    operations: 14,
+    date: '24-12-2018',
+    rating: 98,
+    status: '9 out of 10',
+    price: '$840',
   },
+
   {
     model: {
-      image: 'https://example.com/image2.jpg',
-      name: 'Model 2',
+      image: 'asas',
+      name: 'Pokémon Trading Card Game',
     },
-    card_name: 'Card B',
-    card_number: '9876 5432 1098 7654',
-    type: 'Type Y',
-    limited: false,
-    operations: 5,
-    date: '2023-08-09',
-    rating: 3,
-    status: 'Inactive',
-    price: '$50.00',
+    card_name: 'Charizard Vmax 330',
+    card_number: '#5',
+    type: 'Amet minim',
+    limited: 4,
+    operations: 14,
+    date: '24-12-2018',
+    rating: 98,
+    status: '9 out of 10',
+    price: '$840',
   },
 ]
+const convertToArrays = (data) => {
+  return data.map((item) =>
+    Object.keys(item).map((prop) => {
+      const isImage = prop === 'model' && item[prop].image
 
-function convertToArrays(objArray) {
-  const resultArray = []
-
-  for (const obj of objArray) {
-    const valuesArray = []
-
-    for (const prop in obj) {
-      if (typeof obj[prop] === 'object' && obj[prop] !== null) {
-        valuesArray.push(obj[prop])
-      } else {
-        valuesArray.push(obj[prop])
+      if (prop === 'rating') {
+        return `${item[prop]}%`
       }
-    }
 
-    resultArray.push(valuesArray)
-  }
+      if (isImage) {
+        return item[prop]
+      }
 
-  return resultArray
+      return item[prop]
+    }),
+  )
 }
 
 const DashboardTable = () => {
   const tableData = convertToArrays(data)
+
+  const headers = tableHeaders.map((header) => {
+    if (header === 'Limited' || header === '№ Operations' || header === 'Options') {
+      return (
+        <TableCell key={nanoid()} align="center">
+          {header}
+        </TableCell>
+      )
+    }
+    return <TableCell key={nanoid()}>{header}</TableCell>
+  })
 
   return (
     <Flex width="100%" direction="column">
@@ -81,42 +86,15 @@ const DashboardTable = () => {
       </DataBlockHeader>
       <TableWrapper>
         <Table>
-          <TableHeader>
-            <TableCell>Card model</TableCell>
-            <TableCell>Card name</TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell>Limited</TableCell>
-            <TableCell>№ Operations</TableCell>
-            <TableCell>Date of lost operations</TableCell>
-            <TableCell>Rating</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell>Price</TableCell>
-            <TableCell>Options</TableCell>
-          </TableHeader>
-          <TableRow>
-            <TableCell>Card model</TableCell>
-            <TableCell>Card name</TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell>Limited</TableCell>
-            <TableCell>Card model</TableCell>
-            <TableCell>Card name</TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell>Limited</TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell>Limited</TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>Card model</TableCell>
-            <TableCell>Card name</TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell>Limited</TableCell>
-            <TableCell>Card model</TableCell>
-            <TableCell>Card name</TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell>Limited</TableCell>
-            <TableCell>Type</TableCell>
-            <TableCell>Limited</TableCell>
-          </TableRow>
+          <tbody>
+            <TableHeaders>{headers}</TableHeaders>
+            {tableData.map((rowData) => (
+              <TableRow key={nanoid()} rowData={rowData} />
+            ))}
+            {tableData.map((rowData) => (
+              <TableRow key={nanoid()} rowData={rowData} />
+            ))}
+          </tbody>
         </Table>
       </TableWrapper>
     </Flex>
