@@ -1,38 +1,68 @@
-import { useTheme } from 'styled-components'
 import { FC, ReactNode, useState } from 'react'
-import { Typography } from 'UI'
-import { DashboardIcon } from 'assets'
-import { DropdownButton } from './Dropdown.styled'
-import { Flex } from 'UI/containers'
+import { DropdownMenu, DropdownWrapper, ContentWrapper, MenuWrapper } from './Dropdown.styled'
+import { DropdownHeader } from './dropdown-header'
+import { DropdownItem } from './dropdown-item'
 
 interface DropdownProps {
   icon?: ReactNode
-  title?: string
+  title: string
   subtitle?: string
+  data: string[]
 }
 
-const Dropdown: FC<DropdownProps> = ({ icon, title, subtitle }) => {
-  const [open, setOpen] = useState(false)
-  const { palette } = useTheme()
+const Dropdown: FC<DropdownProps> = ({ icon, title, subtitle, data }) => {
+  const [dropOpen, setDropOpen] = useState(false)
 
+  const options = [
+    'option1',
+    'option2',
+    'option3',
+    'option4',
+    'option5',
+    'option6',
+    'option7',
+    'option8',
+    'option9',
+  ]
+
+  const [checkedValues, setCheckedValues] = useState<string[]>([])
+
+  const handleCheckboxChange = (value: string) => {
+    if (checkedValues.includes(value)) {
+      setCheckedValues(checkedValues.filter((val) => val !== value))
+    } else {
+      setCheckedValues([...checkedValues, value])
+    }
+  }
   return (
-    <DropdownButton
-      isOpen={open}
+    <DropdownWrapper
+      isOpen={dropOpen}
       withIcon={!!icon}
-      onMouseOver={() => setOpen(!open)}
-      onMouseLeave={() => setOpen(!open)}>
-      {icon || (
-        <Typography variant="subtitle2" color={palette.darkWhite}>
-          {subtitle}
-        </Typography>
+      onMouseOver={() => setDropOpen(true)}
+      onMouseLeave={() => setDropOpen(false)}>
+      <DropdownHeader dropOpen={dropOpen} icon={icon} subtitle={subtitle} title={title} />
+      {dropOpen && (
+        <MenuWrapper>
+          <DropdownMenu>
+            <ContentWrapper>
+              {options.map((option) => (
+                <DropdownItem
+                  type="checkbox"
+                  viewType="toggle"
+                  checked={checkedValues.includes(option)}
+                  key={option}
+                  title={option}
+                  id={option}
+                  name={option}
+                  value={option}
+                  onChange={() => handleCheckboxChange(option)}
+                />
+              ))}
+            </ContentWrapper>
+          </DropdownMenu>
+        </MenuWrapper>
       )}
-      <Flex flxCenter gap="6px">
-        <Typography variant="subtitle1" color="currentColor">
-          {title}
-        </Typography>
-        {open ? <DashboardIcon.ArrowDown /> : <DashboardIcon.ArrowUp />}
-      </Flex>
-    </DropdownButton>
+    </DropdownWrapper>
   )
 }
 

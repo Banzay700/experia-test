@@ -4,7 +4,7 @@ export const baseTheme = {
     secondary: '#3CDC86',
     white: '#fff',
     darkWhite: '#FFFFFF99',
-    black: '',
+    black: '#111216',
     gray: '#9496A6',
     lightSlateGrey: '#A2A4A8',
     lightGray: '#7D869E',
@@ -18,6 +18,8 @@ export const baseTheme = {
     darkBlue: '#191C23',
     accent: '#8941FF',
     accentHover: '#733aef',
+    gray: '#60677A',
+    lightGray: '#A9A6AE',
   },
   font: {
     primary: 'Metropolis, sans-serif',

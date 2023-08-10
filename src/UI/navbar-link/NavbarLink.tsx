@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom'
-import { FC, ReactNode, useEffect, useState } from 'react'
-import { NavLink } from './NavbarLink.styled'
+import { FC, ReactNode } from 'react'
+import { Link } from './NavbarLink.styled'
 
 interface NavbarLinkProps {
   path: string
@@ -8,17 +8,12 @@ interface NavbarLinkProps {
 }
 
 const NavbarLink: FC<NavbarLinkProps> = ({ path, children }) => {
-  const [isActive, setIsActive] = useState(false)
   const { pathname } = useLocation()
 
-  useEffect(() => {
-    setIsActive(pathname === path)
-  }, [pathname, path])
-
   return (
-    <NavLink active={isActive ? 'active' : ''} to={path}>
+    <Link $activeLink={pathname === path} to={path}>
       {children}
-    </NavLink>
+    </Link>
   )
 }
 

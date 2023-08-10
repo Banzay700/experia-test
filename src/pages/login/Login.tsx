@@ -34,13 +34,15 @@ const Login = () => {
     setUser(values)
     await signup(values)
 
-    if (isSignUpUser) setIsSignUp(!isSignUp)
+    if (isSignUpUser) {
+      setIsSignUp(!isSignUp)
+    }
   }
 
   useEffect(() => {
     if (isSuccess) navigate(from)
     if (isSignUpUser) setIsSignUp(!isSignUp)
-  }, [isSuccess, isSignUpUser, navigate, from, setIsSignUp, isSignUp])
+  }, [isSuccess, isSignUpUser, from, navigate]) // eslint-disable-line
 
   useEffect(() => {
     const jwt = getJwtFromCookie()
@@ -49,7 +51,7 @@ const Login = () => {
       userLogin(jwt)
       navigate(from)
     }
-  }, [from, navigate, userLogin])
+  }, [from, navigate]) // eslint-disable-line
 
   return (
     <Container padding="160px 0 0" maxWidth="1920px;">

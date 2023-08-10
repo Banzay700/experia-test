@@ -1,16 +1,11 @@
-import styled, { css } from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 interface NavLinkProps {
-  active?: string
+  $activeLink?: boolean
 }
 
-const activeStyle = css`
-  color: ${({ theme }) => theme.palette.white};
-  background-color: ${({ theme }) => theme.background.accent};
-`
-
-export const NavLink = styled(Link)<NavLinkProps>`
+export const Link = styled(NavLink)<NavLinkProps>`
   width: 48px;
   height: 48px;
   display: flex;
@@ -27,5 +22,9 @@ export const NavLink = styled(Link)<NavLinkProps>`
     color: ${({ theme }) => theme.palette.white};
     background-color: ${({ theme }) => theme.background.accent};
   }
-  ${({ active }) => active && activeStyle}
+
+  &.active {
+    color: ${({ theme }) => theme.palette.white};
+    background-color: ${({ theme }) => theme.background.accentHover};
+  }
 `
