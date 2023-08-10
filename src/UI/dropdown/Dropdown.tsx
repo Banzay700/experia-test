@@ -1,4 +1,5 @@
 import { FC, ReactNode, useState } from 'react'
+import { DropdownViewType } from 'types'
 import { DropdownMenu, DropdownWrapper, ContentWrapper, MenuWrapper } from './Dropdown.styled'
 import { DropdownHeader } from './dropdown-header'
 import { DropdownItem } from './dropdown-item'
@@ -8,22 +9,11 @@ interface DropdownProps {
   title: string
   subtitle?: string
   data: string[]
+  viewType: DropdownViewType
 }
 
-const Dropdown: FC<DropdownProps> = ({ icon, title, subtitle, data }) => {
+const Dropdown: FC<DropdownProps> = ({ icon, title, subtitle, data, viewType }) => {
   const [dropOpen, setDropOpen] = useState(false)
-
-  const options = [
-    'option1',
-    'option2',
-    'option3',
-    'option4',
-    'option5',
-    'option6',
-    'option7',
-    'option8',
-    'option9',
-  ]
 
   const [checkedValues, setCheckedValues] = useState<string[]>([])
 
@@ -34,6 +24,7 @@ const Dropdown: FC<DropdownProps> = ({ icon, title, subtitle, data }) => {
       setCheckedValues([...checkedValues, value])
     }
   }
+
   return (
     <DropdownWrapper
       isOpen={dropOpen}
@@ -43,12 +34,12 @@ const Dropdown: FC<DropdownProps> = ({ icon, title, subtitle, data }) => {
       <DropdownHeader dropOpen={dropOpen} icon={icon} subtitle={subtitle} title={title} />
       {dropOpen && (
         <MenuWrapper>
-          <DropdownMenu>
+          <DropdownMenu viewType={viewType}>
             <ContentWrapper>
-              {options.map((option) => (
+              {data.map((option) => (
                 <DropdownItem
                   type="checkbox"
-                  viewType="toggle"
+                  viewType={viewType}
                   checked={checkedValues.includes(option)}
                   key={option}
                   title={option}

@@ -30,6 +30,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     "@typescript-eslint/no-empty-interface": 0,
+    "no-nested-ternary": 0,
     "no-param-reassign":0,
     "react/require-default-props":0,
     "no-plusplus":0

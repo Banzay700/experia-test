@@ -1,11 +1,13 @@
 import React, { FC } from 'react'
-import { DropdownItemType } from 'types'
+import { DropdownItemType, DropdownViewType } from 'types'
 import { DropdownItemLabel, ItemWrapper } from './DropdownItem.styled'
-import { DropdownToggle } from './toggle'
+import { DropdownToggle } from './toggle-item'
+import { DropdownRadio } from './radio-item'
+import DropdownCheckbox from './checkbox-item/DropdownCheckbox'
 
 interface DropdownItemProps {
   type: DropdownItemType
-  viewType: DropdownItemType
+  viewType: DropdownViewType
   title: string
   value: string
   id: string
@@ -16,12 +18,21 @@ interface DropdownItemProps {
 
 const DropdownItem: FC<DropdownItemProps> = (props) => {
   const { type, viewType, title, value, id, name, checked, onChange } = props
+
   return (
-    <ItemWrapper viewType={viewType}>
-      <DropdownItemLabel>
+    <ItemWrapper viewType={viewType} isOff={checked}>
+      <DropdownItemLabel viewType={viewType} isOff={checked}>
+        {viewType === 'radio' && <DropdownRadio isOff={checked} />}
         {title}
-        <input type={type} value={value} name={name} onChange={onChange} />
-        <DropdownToggle isOff={checked} />
+        <input
+          type={type}
+          value={value}
+          name={viewType === 'radio' ? 'radio' : name}
+          checked={checked}
+          onChange={onChange}
+        />
+        {viewType === 'toggle' && <DropdownToggle isOff={checked} />}
+        {viewType === 'checkbox' && <DropdownCheckbox isOff={checked} />}
       </DropdownItemLabel>
     </ItemWrapper>
   )

@@ -15,6 +15,7 @@ export const baseTheme = {
   background: {
     primary: '#242731',
     secondary: '#111216',
+    tertiary: '#31343D',
     darkBlue: '#191C23',
     accent: '#8941FF',
     accentHover: '#733aef',
@@ -27,6 +28,10 @@ export const baseTheme = {
   border: {
     primary: '#3d4250',
     primaryHover: '#4e5466',
+  },
+  boxShadow: {
+    primary:
+      '0 16px 24px 0 rgba(55, 58, 83, 0.16), 0 4px 12px 0 rgba(36, 38, 53, 0.1), 0 2px 4px 0 rgba(36, 38, 53, 0.08), 0 8px 48px 0 rgba(0, 0, 0, 0.6), 0 2px 4px 0 rgba(0, 0, 0, 0.25), 0 4px 12px 0 rgba(0, 0, 0, 0.4)',
   },
   typography: {
     h1: {

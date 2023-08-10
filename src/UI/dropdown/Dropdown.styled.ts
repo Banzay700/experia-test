@@ -1,8 +1,10 @@
 import styled from 'styled-components'
+import { DropdownViewType } from 'types'
 
 interface DropdownProps {
-  isOpen: boolean
+  isOpen?: boolean
   withIcon?: boolean
+  viewType?: DropdownViewType
 }
 
 export const DropdownWrapper = styled.div<DropdownProps>`
@@ -28,13 +30,11 @@ export const MenuWrapper = styled.div`
   padding-top: 28px;
 `
 
-export const DropdownMenu = styled.div`
+export const DropdownMenu = styled.div<DropdownProps>`
   padding: 3px;
-  border-radius: 8px;
   background-color: ${({ theme }) => theme.background.primary};
-  box-shadow: 0 16px 24px 0 rgba(55, 58, 83, 0.16), 0 4px 12px 0 rgba(36, 38, 53, 0.1),
-    0 2px 4px 0 rgba(36, 38, 53, 0.08), 0 8px 48px 0 rgba(0, 0, 0, 0.6),
-    0 2px 4px 0 rgba(0, 0, 0, 0.25), 0 4px 12px 0 rgba(0, 0, 0, 0.4);
+  border-radius: ${({ viewType }) => (viewType !== 'checkbox' ? '8px' : '')};
+  box-shadow: ${({ theme }) => theme.boxShadow.primary};
 `
 export const ContentWrapper = styled.div`
   max-height: 282px;

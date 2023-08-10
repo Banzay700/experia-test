@@ -2,4 +2,4 @@ export type { UserType, UserLoginRequestType, UserLoginResponseType } from './us
 export type { TypographyVariantProps } from './typographyType'
 export type { CommonFormTypes, SignupFormTypes, LoginFormTypes } from './formTypes'
 export type { DashboardStatisticDataType, StatisticType } from './dashboardStatysticsType'
-export type { DropdownItemType } from './dropdownType'
+export type { DropdownItemType, DropdownViewType } from './dropdownType'

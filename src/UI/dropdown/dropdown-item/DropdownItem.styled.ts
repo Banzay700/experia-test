@@ -1,41 +1,60 @@
 import styled, { css } from 'styled-components'
-import { DropdownItemType } from 'types'
+import { DropdownViewType } from 'types'
 
 interface ItemWrapperProps {
-  viewType: DropdownItemType
+  viewType: DropdownViewType
+  isOff?: boolean
 }
 
-const toggleStyles = css`
+const toggleItemStyles = css`
   padding: 13px 17px 7px 24px;
   gap: 24px;
   min-width: 290px;
   font-size: ${({ theme }) => theme.typography.h6.fontSize};
 `
-const checkboxStyles = css`
+
+const radioItemStyles = css`
+  padding: 9px 16px 9px 25px;
+  min-width: 290px;
   font-size: ${({ theme }) => theme.typography.h6.fontSize};
 `
 
-const radioStyles = css`
+const checkboxItemStyles = css<ItemWrapperProps>`
+  padding: 1px 8px;
+  min-width: 232px;
   font-size: ${({ theme }) => theme.typography.subtitle1.fontSize};
+  background-color: ${({ theme }) => theme.background.primary};
+`
+
+const checkboxLabelStyles = css<ItemWrapperProps>`
+  padding: 12px 16px;
+  border-radius: 4px;
+  background-color: ${({ isOff, theme }) =>
+    isOff ? theme.background.tertiary : theme.background.primary};
+  color: ${({ isOff, theme }) => (isOff ? theme.palette.white : theme.palette.gray)};
 `
 
 export const ItemWrapper = styled.div<ItemWrapperProps>`
   color: ${({ theme }) => theme.palette.white};
-  ${({ viewType }) => viewType === 'toggle' && toggleStyles}
-  ${({ viewType }) => viewType === 'checkbox' && checkboxStyles}
-  ${({ viewType }) => viewType === 'radio' && radioStyles}
+  background-color: ${({ theme }) => theme.background.primary};
+
+  ${({ viewType }) => viewType === 'toggle' && toggleItemStyles}
+  ${({ viewType }) => viewType === 'checkbox' && checkboxItemStyles}
+  ${({ viewType }) => viewType === 'radio' && radioItemStyles}
   input {
     display: none;
   }
 `
 
-export const DropdownItemLabel = styled.label`
+export const DropdownItemLabel = styled.label<ItemWrapperProps>`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 16px;
   width: 100%;
   line-height: 20px;
   font-weight: 400;
-  color: ${({ theme }) => theme.palette.white};
   cursor: pointer;
+  color: ${({ theme }) => theme.palette.white};
+  justify-content: ${({ viewType }) => (viewType === 'radio' ? 'flex-start' : 'space-between')};
+  ${({ viewType }) => viewType === 'checkbox' && checkboxLabelStyles}
 `
