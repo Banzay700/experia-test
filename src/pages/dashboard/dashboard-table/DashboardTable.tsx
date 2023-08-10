@@ -1,11 +1,17 @@
 import React from 'react'
 import { DashboardIcon } from 'assets/index'
 import { Dropdown } from 'UI/index'
-import { Container, Flex } from 'UI/containers'
+import { Flex } from 'UI/containers'
 import { DataBlockHeader } from 'components/data-block-header'
-import { TableHeaders } from './table-headers'
+
 import { tableHeaders } from './DashboardTable.utils'
-import { TableRow } from 'pages/dashboard/dashboard-table/table-row'
+import {
+  Table,
+  TableHeader,
+  TableCell,
+  TableWrapper,
+  TableRow,
+} from 'pages/dashboard/dashboard-table/DashboardTable.styles'
 
 const data = [
   {
@@ -73,13 +79,46 @@ const DashboardTable = () => {
           icon={<DashboardIcon.Settings />}
         />
       </DataBlockHeader>
-
-      <Container padding="32px 0 0">
-        <TableHeaders cellsCount={11} headers={tableHeaders} />
-        {tableData.map((item) => (
-          <TableRow key={item[4]} cellsCount={11} rowData={item} />
-        ))}
-      </Container>
+      <TableWrapper>
+        <Table>
+          <TableHeader>
+            <TableCell>Card model</TableCell>
+            <TableCell>Card name</TableCell>
+            <TableCell>Type</TableCell>
+            <TableCell>Limited</TableCell>
+            <TableCell>№ Operations</TableCell>
+            <TableCell>Date of lost operations</TableCell>
+            <TableCell>Rating</TableCell>
+            <TableCell>Status</TableCell>
+            <TableCell>Price</TableCell>
+            <TableCell>Options</TableCell>
+          </TableHeader>
+          <TableRow>
+            <TableCell>Card model</TableCell>
+            <TableCell>Card name</TableCell>
+            <TableCell>Type</TableCell>
+            <TableCell>Limited</TableCell>
+            <TableCell>Card model</TableCell>
+            <TableCell>Card name</TableCell>
+            <TableCell>Type</TableCell>
+            <TableCell>Limited</TableCell>
+            <TableCell>Type</TableCell>
+            <TableCell>Limited</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Card model</TableCell>
+            <TableCell>Card name</TableCell>
+            <TableCell>Type</TableCell>
+            <TableCell>Limited</TableCell>
+            <TableCell>Card model</TableCell>
+            <TableCell>Card name</TableCell>
+            <TableCell>Type</TableCell>
+            <TableCell>Limited</TableCell>
+            <TableCell>Type</TableCell>
+            <TableCell>Limited</TableCell>
+          </TableRow>
+        </Table>
+      </TableWrapper>
     </Flex>
   )
 }

@@ -12,13 +12,16 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
+    "add": "^2.0.6",
     "formik": "^2.4.3",
+    "material-react-table": "^1.14.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.10.0",
     "styled-components": "^5.3.10",
     "vite-plugin-svgr": "^2.4.0",
+    "yarn": "^1.22.19",
     "yup": "^1.2.0"
   },
   "devDependencies": {
