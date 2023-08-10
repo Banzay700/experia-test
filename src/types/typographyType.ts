@@ -3,3 +3,5 @@ export type TypographyVariantProps = {
   lineHeight: string
   color?: string
 }
+
+export type TypographyPositionType = 'left' | 'center' | 'right'

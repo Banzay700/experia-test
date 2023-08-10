@@ -1,7 +1,8 @@
-import { DashboardLabels, DashboardTable } from 'components'
+import { DashboardLabels } from 'components'
 import { DoughnutChart, BarChart } from 'components/charts'
 import { DataContainer, Flex } from 'UI/containers'
 import { useGetDashboardDataQuery } from 'store/api'
+import { DashboardTable } from './dashboard-table'
 
 const Dashboard = () => {
   const { data, isSuccess } = useGetDashboardDataQuery()

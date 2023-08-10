@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { TypographyPositionType } from 'types'
 
 interface TypographyProps {
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'subtitle1' | 'subtitle2'
-  align?: 'left' | 'center' | 'right'
+  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'subtitle1' | 'subtitle2' | 'subtitle3'
+  align?: TypographyPositionType
   fontWeight?: number
   color?: string
 }

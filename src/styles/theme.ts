@@ -66,6 +66,10 @@ export const baseTheme = {
       fontSize: '12px',
       lineHeight: '16px',
     },
+    subtitle3: {
+      fontSize: '11px',
+      lineHeight: '12px',
+    },
   },
 }
 

@@ -16,10 +16,11 @@ interface DropdownProps {
 const Dropdown: FC<DropdownProps> = ({ icon, title, subtitle, data, viewType }) => {
   const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
   const [checkedValues, setCheckedValues] = useState([data[0]])
+  const isToggle = viewType === 'toggle'
 
   const handleCheckboxChange = (value: string) => {
-    if (viewType === 'toggle') getToggleValues(value, checkedValues, setCheckedValues)
-    if (viewType !== 'toggle') setCheckedValues([value])
+    if (isToggle) getToggleValues(value, checkedValues, setCheckedValues)
+    if (!isToggle) setCheckedValues([value])
   }
 
   return (
@@ -38,6 +39,16 @@ const Dropdown: FC<DropdownProps> = ({ icon, title, subtitle, data, viewType }) 
         <MenuWrapper>
           <DropdownMenu viewType={viewType}>
             <ContentWrapper>
+              {isToggle && (
+                <DropdownItem
+                  viewType={viewType}
+                  title="Sourse"
+                  name="Sourse"
+                  value="Sourse"
+                  checked={checkedValues.includes('Sourse')}
+                  onChange={() => handleCheckboxChange('Sourse')}
+                />
+              )}
               {data.map((option) => (
                 <DropdownItem
                   key={option}
