@@ -40,6 +40,7 @@ const DashboardPieChart = () => {
               ))}
             </Pie>
             <Legend
+              onClick={(value) => {}}
               iconSize={8}
               iconType="circle"
               layout="vertical"

@@ -38,4 +38,8 @@ export default createGlobalStyle`
   .App {
     height: 100%;
   }
+  
+  .recharts-sector {
+    outline: none;
+  }
 `

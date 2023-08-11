@@ -6,8 +6,14 @@ const ChartTitle = () => {
   const { palette } = useTheme()
   return (
     <ChartTitleWrapper direction="column" position="absolute" maxWidth="232px">
-      <Typography variant="subtitle2" fontWeight={500} color={palette.darkWhite} align="center">
-        EXCESSIVE
+      <Typography
+        variant="subtitle2"
+        fontWeight={500}
+        color={palette.darkWhite}
+        fontFamily="secondary"
+        align="center"
+        textTransform="uppercase">
+        Excessive
       </Typography>
       <Typography variant="headingBig" align="center" fontWeight={500}>
         85%

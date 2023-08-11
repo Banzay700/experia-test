@@ -5,6 +5,7 @@ export const baseTheme = {
     pink: '#ED2D95',
     white: '#fff',
     darkWhite: '#FFFFFF99',
+    test: 'rgba(255,255,255,0.05)',
     black: '#111216',
     gray: '#9496A6',
     lightSlateGrey: '#A2A4A8',
@@ -26,6 +27,7 @@ export const baseTheme = {
   },
   font: {
     primary: 'Metropolis, sans-serif',
+    secondary: 'MetropolisRegular',
   },
   border: {
     primary: '#3d4250',
