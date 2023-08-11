@@ -3,7 +3,7 @@ import { baseTheme } from 'styles'
 export const COLORS = [baseTheme.palette.pink, baseTheme.palette.secondary, baseTheme.palette.blue]
 
 export const pieChartConfig = {
-  cx: 111,
+  cx: 142,
   cy: 144,
   innerRadius: 95,
   outerRadius: 116,
@@ -15,7 +15,7 @@ export const pieChartConfig = {
 
 export const legendWrapperStyle = {
   top: '33px',
-  right: '-113px',
+  right: '-110px',
   lineHeight: '31px',
 }
 

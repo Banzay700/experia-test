@@ -8,7 +8,7 @@ const Layout = () => {
       <Sidebar />
       <Flex direction="column" height="100%" width="100%">
         <Header />
-        <Container padding="24px 48px 28px 32px" background="secondary">
+        <Container height="calc(100vh-68px)" padding="24px 48px 28px 32px" background="secondary">
           <Outlet />
         </Container>
       </Flex>

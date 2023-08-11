@@ -36,23 +36,9 @@ export const DropdownMenu = styled.div<DropdownProps>`
   border-radius: ${({ viewType }) => (viewType !== 'checkbox' ? '8px' : '')};
   box-shadow: ${({ theme }) => theme.boxShadow.primary};
 `
+
 export const ContentWrapper = styled.div`
   max-height: 282px;
   overflow-y: auto;
   overflow-x: hidden;
-  &::-webkit-scrollbar {
-    border-radius: 4px;
-    width: 2px;
-  }
-  &::-webkit-scrollbar-track {
-    background: ${({ theme }) => theme.background.gray};
-    border-radius: 4px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: ${({ theme }) => theme.background.lightGray};
-    border-radius: 4px;
-  }
-  &::-webkit-scrollbar-thumb:hover {
-    background: ${({ theme }) => theme.palette.lightBlue};
-  }
 `

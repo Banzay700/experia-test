@@ -2,10 +2,9 @@ import React, { FC } from 'react'
 import { nanoid } from 'nanoid'
 import { DashboardIcon } from 'assets'
 import { Dropdown } from 'UI'
+import { DataBlockHeader } from 'components'
 import { Flex } from 'UI/containers'
 import { GeneralSaleTimeType } from 'types'
-import { DataBlockHeader } from 'components'
-
 import { convertToArrays, tableHeaders } from './DashboardTable.utils'
 import { TableRow } from './table-row'
 import { Table, TableHeaders, TableCell, TableWrapper } from './DashboardTable.styles'
@@ -29,7 +28,7 @@ const DashboardTable: FC<DashboardTableProps> = ({ statistic }) => {
   })
 
   return (
-    <Flex width="100%" direction="column">
+    <Flex width="100%" direction="column" paddingBottom="24px" borderRadius="4px" overflow="hidden">
       <DataBlockHeader title="General Sales / Time" withIcon>
         <Dropdown
           data={tableHeaders}
@@ -45,6 +44,27 @@ const DashboardTable: FC<DashboardTableProps> = ({ statistic }) => {
             {tableData.map((rowData) => (
               <TableRow key={nanoid()} rowData={rowData} />
             ))}
+            {tableData.map((rowData) => (
+              <TableRow key={nanoid()} rowData={rowData} />
+            ))}
+            {tableData.map((rowData) => (
+              <TableRow key={nanoid()} rowData={rowData} />
+            ))}{' '}
+            {tableData.map((rowData) => (
+              <TableRow key={nanoid()} rowData={rowData} />
+            ))}{' '}
+            {tableData.map((rowData) => (
+              <TableRow key={nanoid()} rowData={rowData} />
+            ))}{' '}
+            {tableData.map((rowData) => (
+              <TableRow key={nanoid()} rowData={rowData} />
+            ))}{' '}
+            {tableData.map((rowData) => (
+              <TableRow key={nanoid()} rowData={rowData} />
+            ))}{' '}
+            {tableData.map((rowData) => (
+              <TableRow key={nanoid()} rowData={rowData} />
+            ))}{' '}
             {tableData.map((rowData) => (
               <TableRow key={nanoid()} rowData={rowData} />
             ))}

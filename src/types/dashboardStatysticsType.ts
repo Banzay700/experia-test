@@ -13,7 +13,7 @@ export type ChartDataType = {
   date: string
 }
 
-export type UserDataType = {
+export type DateCityDataType = {
   name: string
   date: string
 }
@@ -44,6 +44,6 @@ export type TableConvertedDataType = (TableCardModelType | string | number)[]
 export type DashboardStatisticDataType = {
   statistic: StatisticType
   chartData: ChartDataType[]
-  users: UserDataType[]
+  users: DateCityDataType[]
   general_sales_time: GeneralSaleTimeType[]
 }

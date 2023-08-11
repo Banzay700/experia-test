@@ -19,7 +19,7 @@ export const convertToArrays = (data: GeneralSaleTimeType[]): TableConvertedData
 }
 
 export const tableHeaders = [
-  'Card Model',
+  'Card model',
   'Card name',
   'Card number',
   'Type',

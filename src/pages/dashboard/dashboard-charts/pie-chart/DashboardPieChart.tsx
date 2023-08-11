@@ -9,7 +9,7 @@ import {
   legendTypographyStyles,
   pieChartConfig,
 } from './DashboardPieChat.utls'
-import { ChartTitle } from 'pages/dashboard/charts/pie-chart/chart-title'
+import { ChartSummary } from './chart-summary'
 
 const mockData = ['Charlottetown', 'Halifax', 'Naperville', 'Vernon', 'Montreal']
 
@@ -25,14 +25,19 @@ const DashboardPieChart = () => {
   }
 
   return (
-    <Flex width="100%" direction="column">
+    <Flex
+      width="100%"
+      height="100%"
+      direction="column"
+      maxWidth="428px"
+      borderRadius="4px"
+      overflow="hidden">
       <DataBlockHeader title="Game Stats">
         <Dropdown data={mockData} viewType="radio" subtitle="Location" />
       </DataBlockHeader>
-
       <Box height="100%" position="relative">
-        <ChartTitle />
-        <ResponsiveContainer height="100%" width={232}>
+        <ChartSummary />
+        <ResponsiveContainer height="100%" width={265}>
           <PieChart>
             <Pie data={data} {...pieChartConfig}>
               {data.map((entry, index) => (
@@ -40,8 +45,7 @@ const DashboardPieChart = () => {
               ))}
             </Pie>
             <Legend
-              onClick={(value) => {}}
-              iconSize={8}
+              iconSize={7}
               iconType="circle"
               layout="vertical"
               wrapperStyle={legendWrapperStyle}

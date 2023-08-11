@@ -1,3 +1,5 @@
+import { FC } from 'react'
+import { useTheme } from 'styled-components'
 import {
   XAxis,
   YAxis,
@@ -6,25 +8,42 @@ import {
   AreaChart,
   Area,
   ResponsiveContainer,
+  Legend,
 } from 'recharts'
 import { DataBlockHeader } from 'components'
 import { Dropdown } from 'UI'
+import { DateCityDataType, ChartDataType } from 'types'
 import { Flex } from 'UI/containers'
-import { useTheme } from 'styled-components'
+import { DateCityList } from './date-city-list'
+import { CustomLegend } from './custom-legend'
+import { dropdownMockData } from './DashboardAreaChart.utils'
+import { baseTheme } from 'styles/theme'
 
-const mockData = ['Diagrams', 'Graph', 'Table', 'Paragraph']
-
-const DashboardAreaChart = ({ data }) => {
+interface DashboardAreaChartProps {
+  chartData: ChartDataType[]
+  cityListData: DateCityDataType[]
+}
+export const COLORS = [baseTheme.palette.blue, baseTheme.palette.pink, baseTheme.palette.secondary]
+const DashboardAreaChart: FC<DashboardAreaChartProps> = ({ chartData, cityListData }) => {
   const { palette } = useTheme()
+  const handleLegendClick = (value: string) => {
+    console.log(value)
+  }
 
   return (
-    <Flex width="100%" direction="column">
+    <Flex
+      width="100%"
+      direction="column"
+      height="100%"
+      borderRadius="4px"
+      overflow="hidden"
+      paddingBottom="20px">
       <DataBlockHeader title="Game Stats">
-        <Dropdown data={mockData} viewType="checkbox" subtitle="Data type" />
+        <Dropdown data={dropdownMockData} viewType="checkbox" subtitle="Data type" />
       </DataBlockHeader>
-      <Flex flex={1}>
-        <ResponsiveContainer width="100%" height="100%">
-          <AreaChart data={data} syncId="anyId">
+      <Flex height="100%" paddingTop="16px" gap="203px" padding="16px 0 0 14px">
+        <ResponsiveContainer width="100%" height={259}>
+          <AreaChart data={chartData} syncId="anyId">
             <defs>
               <linearGradient id="colorBlue" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor={palette.blue} stopOpacity={1} />
@@ -41,7 +60,7 @@ const DashboardAreaChart = ({ data }) => {
             </defs>
             <Area
               strokeWidth={2}
-              dot={{ fill: palette.secondary, strokeWidth: 5, r: 2 }}
+              dot={{ strokeWidth: 5, r: 2 }}
               type="monotone"
               dataKey="blue"
               stroke={palette.blue}
@@ -49,7 +68,7 @@ const DashboardAreaChart = ({ data }) => {
             />
             <Area
               strokeWidth={2}
-              dot={{ fill: palette.secondary, strokeWidth: 5, r: 2 }}
+              dot={{ strokeWidth: 5, r: 2 }}
               type="monotone"
               dataKey="red"
               stroke={palette.pink}
@@ -57,7 +76,7 @@ const DashboardAreaChart = ({ data }) => {
             />
             <Area
               strokeWidth={2}
-              dot={{ fill: palette.secondary, strokeWidth: 5, r: 2 }}
+              dot={{ strokeWidth: 5, r: 2 }}
               type="monotone"
               dataKey="green"
               stroke={palette.secondary}
@@ -69,19 +88,15 @@ const DashboardAreaChart = ({ data }) => {
               height={30}
               axisLine={false}
               tickLine={false}
-              tickSize={20}
+              tickSize={11}
             />
-            <YAxis
-              fontWeight={400}
-              fontSize="11px"
-              axisLine={false}
-              tickLine={false}
-              tickSize={40}
-            />
+            <Legend layout="horizontal" content={<CustomLegend onClick={handleLegendClick} />} />
+            <YAxis fontSize="11px" axisLine={false} tickLine={false} tickSize={20} />
             <CartesianGrid stroke="rgba(255,255,255,0.05)" />
             <Tooltip />
           </AreaChart>
         </ResponsiveContainer>
+        <DateCityList cityListData={cityListData} />
       </Flex>
     </Flex>
   )

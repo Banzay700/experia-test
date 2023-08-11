@@ -1,11 +1,11 @@
 import { useTheme } from 'styled-components'
 import { Typography } from 'UI'
-import { ChartTitleWrapper } from './ChartTitle.styled'
+import { ChartTitleWrapper } from './ChartSummary.styled'
 
-const ChartTitle = () => {
+const ChartSummary = () => {
   const { palette } = useTheme()
   return (
-    <ChartTitleWrapper direction="column" position="absolute" maxWidth="232px">
+    <ChartTitleWrapper direction="column" position="absolute">
       <Typography
         variant="subtitle2"
         fontWeight={500}
@@ -28,4 +28,4 @@ const ChartTitle = () => {
   )
 }
 
-export default ChartTitle
+export default ChartSummary

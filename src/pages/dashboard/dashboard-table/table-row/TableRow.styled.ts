@@ -14,4 +14,10 @@ export const Row = styled.tr`
 
 export const Cell = styled.td<{ align?: 'center' }>`
   text-align: ${({ align }) => align || 'left'};
+  &:first-child {
+    padding-left: 32px;
+  }
+  &:last-child {
+    padding-right: 32px;
+  }
 `

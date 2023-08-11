@@ -11,7 +11,7 @@ interface DataBlockHeaderProps {
 
 const DataBlockHeader: FC<DataBlockHeaderProps> = ({ withIcon, title, children }) => {
   return (
-    <Flex flxBetween maxHeight="24px" width="100%">
+    <Flex flxBetween width="100%" padding="25px 32px 0">
       <Flex flxStart gap="12px">
         <Typography variant="h4" fontWeight={500}>
           {title}

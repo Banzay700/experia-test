@@ -42,4 +42,16 @@ export default createGlobalStyle`
   .recharts-sector {
     outline: none;
   }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme.background.gray};
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme.background.lightGray};
+    border-radius: 4px;
+  }
 `

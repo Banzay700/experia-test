@@ -11,5 +11,7 @@ export type {
   GeneralSaleTimeType,
   TableConvertedDataType,
   TableCardModelType,
+  DateCityDataType,
+  ChartDataType,
 } from './dashboardStatysticsType'
 export type { DropdownItemType, DropdownViewType } from './dropdownType'

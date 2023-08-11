@@ -1,27 +1,24 @@
-import { DataContainer, Flex } from 'UI/containers'
+import { Flex } from 'UI/containers'
 import { useGetDashboardDataQuery } from 'store/api'
 import { DashboardLabels } from './dashboard-labels'
-import { DashboardPieChart, Da } from './charts'
+import { DashboardPieChart, DashboardAreaChart } from './dashboard-charts'
 import { DashboardTable } from './dashboard-table'
-import DashboardAreaChart from './charts/area-chart/DashboardAreaChart'
 
 const Dashboard = () => {
   const { data, isSuccess } = useGetDashboardDataQuery()
 
   return (
-    <Flex direction="column" gap="16px" background="secondary" height="100%">
+    <Flex direction="column" gap="16px" background="secondary" height="calc(100% - 64px)">
       {isSuccess && <DashboardLabels statistic={data.statistic} />}
-      <Flex background="secondary" gap="16px" height="100%" maxHeight="344px">
-        <DataContainer flex={1} height="100%">
-          {isSuccess && <DashboardAreaChart data={data.chartData} />}
-        </DataContainer>
-        <DataContainer flex={1} maxWidth="428px">
+      <Flex direction="column" gap="16px" background="secondary" height="100%">
+        <Flex flex={1} background="secondary" gap="16px" height="100%" maxHeight="344px">
+          {isSuccess && <DashboardAreaChart chartData={data.chartData} cityListData={data.users} />}
           <DashboardPieChart />
-        </DataContainer>
+        </Flex>
+        <Flex flex={1} background="secondary" gap="16px" height="100%" maxHeight="480px">
+          {isSuccess && <DashboardTable statistic={data.general_sales_time} />}
+        </Flex>
       </Flex>
-      <DataContainer flex={1} maxHeight="480px">
-        {isSuccess && <DashboardTable statistic={data.general_sales_time} />}
-      </DataContainer>
     </Flex>
   )
 }
