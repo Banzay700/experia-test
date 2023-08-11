@@ -6,6 +6,7 @@ interface TypographyProps {
   align?: TypographyPositionType
   fontWeight?: number
   color?: string
+  textTransform?: 'uppercase' | 'lowercase' | 'capitalize' | 'none'
 }
 
 export const Typography = styled.div<TypographyProps>`
@@ -16,4 +17,5 @@ export const Typography = styled.div<TypographyProps>`
   color: ${({ color, theme }) => color || theme.palette.white};
   font-size: ${({ variant, theme }) => theme.typography[variant].fontSize};
   line-height: ${({ variant, theme }) => theme.typography[variant].lineHeight};
+  text-transform: ${({ textTransform }) => textTransform || 'none'};
 `

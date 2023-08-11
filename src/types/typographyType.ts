@@ -16,3 +16,4 @@ export type TypographyVariantType =
   | 'subtitle1'
   | 'subtitle2'
   | 'subtitle3'
+  | 'headingBig'

@@ -1,7 +1,7 @@
 import { DataContainer, Flex } from 'UI/containers'
 import { useGetDashboardDataQuery } from 'store/api'
 import { DashboardLabels } from './dashboard-labels'
-import { DoughnutChart, BarChart } from './charts'
+import { DashboardPieChart, BarChart } from './charts'
 import { DashboardTable } from './dashboard-table'
 
 const Dashboard = () => {
@@ -15,7 +15,7 @@ const Dashboard = () => {
           <BarChart />
         </DataContainer>
         <DataContainer flex={1} maxWidth="428px">
-          <DoughnutChart />
+          <DashboardPieChart />
         </DataContainer>
       </Flex>
       <DataContainer flex={1} maxHeight="480px">

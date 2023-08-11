@@ -1,2 +1,2 @@
 export { BarChart } from './bar-chart'
-export { DoughnutChart } from './doughnut-chart'
+export { DashboardPieChart } from './pie-chart'

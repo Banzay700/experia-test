@@ -2,6 +2,7 @@ export const baseTheme = {
   palette: {
     primary: '#8941FF',
     secondary: '#3CDC86',
+    pink: '#ED2D95',
     white: '#fff',
     darkWhite: '#FFFFFF99',
     black: '#111216',
@@ -9,6 +10,7 @@ export const baseTheme = {
     lightSlateGrey: '#A2A4A8',
     lightGray: '#7D869E',
     darkGray: '#7D7F8E',
+    blue: '#18A0FB',
     lightBlue: '#78B4ED',
     error: '#ab2a2a',
   },
@@ -69,6 +71,10 @@ export const baseTheme = {
     subtitle3: {
       fontSize: '11px',
       lineHeight: '12px',
+    },
+    headingBig: {
+      fontSize: '64px',
+      lineHeight: '72px',
     },
   },
 }
