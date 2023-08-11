@@ -5,13 +5,13 @@ import { Provider } from 'react-redux'
 import { ThemeProvider } from 'styled-components'
 import { store } from 'store'
 import { baseTheme } from 'styles'
-import App from './App'
+import AppRouter from 'routes/routes'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Provider store={store}>
     <ThemeProvider theme={baseTheme}>
       <BrowserRouter>
-        <App />
+        <AppRouter />
       </BrowserRouter>
     </ThemeProvider>
   </Provider>,

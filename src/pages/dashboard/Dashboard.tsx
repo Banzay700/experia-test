@@ -1,7 +1,7 @@
-import { DashboardLabels } from 'components'
-import { DoughnutChart, BarChart } from 'components/charts'
 import { DataContainer, Flex } from 'UI/containers'
 import { useGetDashboardDataQuery } from 'store/api'
+import { DashboardLabels } from './dashboard-labels'
+import { DoughnutChart, BarChart } from './charts'
 import { DashboardTable } from './dashboard-table'
 
 const Dashboard = () => {
@@ -19,7 +19,7 @@ const Dashboard = () => {
         </DataContainer>
       </Flex>
       <DataContainer flex={1} maxHeight="480px">
-        <DashboardTable />
+        {isSuccess && <DashboardTable statistic={data.general_sales_time} />}
       </DataContainer>
     </Flex>
   )

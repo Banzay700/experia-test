@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { nanoid } from 'nanoid'
 import { DashboardIcon } from 'assets'
+import { TableConvertedDataType, TableCardModelType } from 'types'
 import { Row, Cell } from './TableRow.styled'
 import { TableImageItem } from '../table-image-item'
 
-const TableRow = ({ rowData }) => {
+interface TableRowProps {
+  rowData: TableConvertedDataType
+}
+
+const TableRow: FC<TableRowProps> = ({ rowData }) => {
   return (
     <Row>
       {rowData.map((cellData) => {
-        if (cellData.image) {
+        if (typeof cellData === 'object' && 'name' in cellData) {
+          const typedCellData = cellData as TableCardModelType
           return (
             <Cell key={nanoid()}>
-              <TableImageItem cellData={cellData} />
+              <TableImageItem cellData={typedCellData} />
             </Cell>
           )
         }

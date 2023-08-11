@@ -34,6 +34,13 @@ export type GeneralSaleTimeType = {
   price: string
 }
 
+export type TableCardModelType = {
+  image: string | null
+  name: string
+}
+
+export type TableConvertedDataType = (TableCardModelType | string | number)[]
+
 export type DashboardStatisticDataType = {
   statistic: StatisticType
   chartData: ChartDataType[]

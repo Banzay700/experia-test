@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Flex } from 'UI/containers'
-import { StatisticType } from 'types'
+import { StatisticType } from 'types/index'
 import { Label } from './label'
 import { labelsStyleData, combineData } from './DashboardLabels.utils'
 

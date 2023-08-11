@@ -1,67 +1,21 @@
+import React, { FC } from 'react'
 import { nanoid } from 'nanoid'
-import React from 'react'
 import { DashboardIcon } from 'assets'
 import { Dropdown } from 'UI'
 import { Flex } from 'UI/containers'
+import { GeneralSaleTimeType } from 'types'
+import { DataBlockHeader } from 'components'
 
-import { DataBlockHeader } from 'components/data-block-header'
-import { tableHeaders } from './DashboardTable.utils'
+import { convertToArrays, tableHeaders } from './DashboardTable.utils'
 import { TableRow } from './table-row'
 import { Table, TableHeaders, TableCell, TableWrapper } from './DashboardTable.styles'
 
-const data = [
-  {
-    model: {
-      image: 'asdasd',
-      name: 'Pokémon Trading Card Game',
-    },
-    card_name: 'Charizard Vmax 330',
-    card_number: '#5',
-    type: 'Amet minim',
-    limited: 4,
-    operations: 14,
-    date: '24-12-2018',
-    rating: 98,
-    status: '9 out of 10',
-    price: '$840',
-  },
-
-  {
-    model: {
-      image: 'asas',
-      name: 'Pokémon Trading Card Game',
-    },
-    card_name: 'Charizard Vmax 330',
-    card_number: '#5',
-    type: 'Amet minim',
-    limited: 4,
-    operations: 14,
-    date: '24-12-2018',
-    rating: 98,
-    status: '9 out of 10',
-    price: '$840',
-  },
-]
-const convertToArrays = (data) => {
-  return data.map((item) =>
-    Object.keys(item).map((prop) => {
-      const isImage = prop === 'model' && item[prop].image
-
-      if (prop === 'rating') {
-        return `${item[prop]}%`
-      }
-
-      if (isImage) {
-        return item[prop]
-      }
-
-      return item[prop]
-    }),
-  )
+interface DashboardTableProps {
+  statistic: GeneralSaleTimeType[]
 }
 
-const DashboardTable = () => {
-  const tableData = convertToArrays(data)
+const DashboardTable: FC<DashboardTableProps> = ({ statistic }) => {
+  const tableData = convertToArrays(statistic)
 
   const headers = tableHeaders.map((header) => {
     if (header === 'Limited' || header === '№ Operations' || header === 'Options') {

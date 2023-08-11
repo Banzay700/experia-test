@@ -1,19 +1,19 @@
 import styled from 'styled-components'
-import { TypographyPositionType } from 'types'
+import { TypographyPositionType, TypographyVariantType } from 'types'
 
 interface TypographyProps {
-  variant: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'subtitle1' | 'subtitle2' | 'subtitle3'
+  variant: TypographyVariantType
   align?: TypographyPositionType
   fontWeight?: number
   color?: string
 }
 
 export const Typography = styled.div<TypographyProps>`
+  background-color: transparent;
   font-family: ${({ theme }) => theme.font.primary};
   text-align: ${({ align }) => align || 'left'};
   font-weight: ${({ fontWeight }) => fontWeight || 400};
   color: ${({ color, theme }) => color || theme.palette.white};
   font-size: ${({ variant, theme }) => theme.typography[variant].fontSize};
   line-height: ${({ variant, theme }) => theme.typography[variant].lineHeight};
-  background-color: transparent;
 `
