@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { DropdownItemType, DropdownViewType } from 'types'
+import { DropdownViewType } from 'types'
 import { DropdownItemLabel, ItemWrapper } from './DropdownItem.styled'
 import { DropdownToggle } from './toggle-item'
 import { DropdownRadio } from './radio-item'
@@ -11,16 +11,17 @@ interface DropdownItemProps {
   value: string
   name: string
   checked: boolean
+  defaultValue?: string
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 const DropdownItem: FC<DropdownItemProps> = (props) => {
-  const { viewType, title, value, name, checked, onChange } = props
+  const { viewType, title, value, name, checked, defaultValue, onChange } = props
 
   return (
     <ItemWrapper viewType={viewType} isChecked={checked}>
       <DropdownItemLabel viewType={viewType} isChecked={checked}>
-        {viewType === 'radio' && <DropdownRadio isChecked={checked} />}
+        {viewType === 'radio' && <DropdownRadio isChecked={defaultValue === value} />}
         {title}
         <input type="checkbox" value={value} name={name} checked={checked} onChange={onChange} />
         {viewType === 'toggle' && <DropdownToggle isChecked={checked} />}

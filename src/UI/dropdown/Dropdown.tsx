@@ -7,7 +7,6 @@ import { getToggleValues } from './Dropdown.utils'
 
 interface DropdownProps {
   icon?: ReactNode
-
   subtitle?: string
   data: string[]
   viewType: DropdownViewType
@@ -15,14 +14,8 @@ interface DropdownProps {
   onSelect: (value: string[]) => void
 }
 
-const Dropdown: FC<DropdownProps> = ({
-  icon,
-  defaultValue,
-  subtitle,
-  data,
-  viewType,
-  onSelect,
-}) => {
+const Dropdown: FC<DropdownProps> = (props) => {
+  const { icon, defaultValue, subtitle, data, viewType, onSelect } = props
   const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
   const [checkedValues, setCheckedValues] = useState([data[0]])
   const isToggle = viewType === 'toggle'
@@ -52,11 +45,11 @@ const Dropdown: FC<DropdownProps> = ({
               {isToggle && (
                 <DropdownItem
                   viewType={viewType}
-                  title="Sourse"
-                  name="Sourse"
-                  value="Sourse"
-                  checked={checkedValues.includes('Sourse')}
-                  onChange={() => handleCheckboxChange('Sourse')}
+                  title="Source"
+                  name="Source"
+                  value="Source"
+                  checked={checkedValues.includes('Source')}
+                  onChange={() => handleCheckboxChange('Source')}
                 />
               )}
               {data.map((option) => (
@@ -65,6 +58,7 @@ const Dropdown: FC<DropdownProps> = ({
                   viewType={viewType}
                   title={option}
                   name={option}
+                  defaultValue={defaultValue}
                   value={option}
                   checked={checkedValues.includes(option)}
                   onChange={() => handleCheckboxChange(option)}

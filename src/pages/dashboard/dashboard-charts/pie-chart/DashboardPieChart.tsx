@@ -1,32 +1,29 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts'
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import { nanoid } from 'nanoid'
 import { DataBlockHeader } from 'components'
 import { Dropdown } from 'UI'
 import { Flex } from 'UI/containers'
-import { PieChartDataPointType, PieChartDataType } from 'types'
+import { PieChartDataType } from 'types'
 import {
   COLORS,
   legendWrapperStyle,
   legendTypographyStyles,
   pieChartConfig,
-  prepareChartData,
 } from './DashboardPieChat.utls'
 import { ChartSummary } from './chart-summary'
 
 interface DashboardPieChartProps {
-  data: PieChartDataType[]
+  data: PieChartDataType
 }
 
 const DashboardPieChart: FC<DashboardPieChartProps> = ({ data }) => {
-  const [selectedLocation, setSelectedLocation] = useState<string>('')
-  const [chartData, setChartData] = useState<PieChartDataPointType[]>([])
-  const [dropdownHeaders, setDropdownHeaders] = useState<string[]>([])
+  const [selectedLocation, setSelectedLocation] = useState<string>(data.headers[0])
+  const [chartData, setChartData] = useState(data.chartData[0])
 
   const handleLocationChange = (value: string[]) => {
-    const { flattenedData, headers } = prepareChartData(data)
-    const index = headers.findIndex((header) => header === value[0])
-    const dta = flattenedData[index] || []
+    const index = data.headers.findIndex((header) => header === value[0])
+    const dta = data.chartData[index]
 
     setSelectedLocation(value[0])
     setChartData(dta)
@@ -35,16 +32,6 @@ const DashboardPieChart: FC<DashboardPieChartProps> = ({ data }) => {
   const renderColorfulLegendText = (value: string) => {
     return <span style={legendTypographyStyles}>{value}</span>
   }
-
-  useEffect(() => {
-    if (chartData.length === 0) {
-      const { initialData, headers } = prepareChartData(data)
-
-      setDropdownHeaders(headers)
-      setSelectedLocation(headers[0])
-      setChartData(initialData)
-    }
-  }, [data, chartData.length])
 
   return (
     <Flex
@@ -56,7 +43,7 @@ const DashboardPieChart: FC<DashboardPieChartProps> = ({ data }) => {
       overflow="hidden">
       <DataBlockHeader title="Game Stats">
         <Dropdown
-          data={dropdownHeaders}
+          data={data.headers}
           viewType="radio"
           subtitle="Location"
           defaultValue={selectedLocation}

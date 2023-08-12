@@ -36,7 +36,12 @@ const DashboardAreaChart: FC<DashboardAreaChartProps> = ({ chartData, cityListDa
   return (
     <Flex width="100%" direction="column" borderRadius="4px" overflow="hidden" paddingBottom="20px">
       <DataBlockHeader title="Game Stats">
-        <Dropdown data={dropdownMockData} viewType="checkbox" subtitle="Data type" />
+        <Dropdown
+          onSelect={() => {}}
+          data={dropdownMockData}
+          viewType="checkbox"
+          subtitle="Data type"
+        />
       </DataBlockHeader>
       <Flex height="100%" paddingTop="16px" gap="15.5%" padding="16px 0 0 14px">
         <ResponsiveContainer width="100%" height={259}>

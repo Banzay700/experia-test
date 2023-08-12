@@ -1,8 +1,11 @@
-export type PieChartDataPointType = {
+export type PieChartHeaders = string[]
+
+export type PieChartDataItemType = {
   name: string
   value: number
 }
 
 export type PieChartDataType = {
-  [cityName: string]: PieChartDataPointType[]
+  headers: PieChartHeaders
+  chartData: PieChartDataItemType[][]
 }
