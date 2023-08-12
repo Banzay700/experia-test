@@ -15,6 +15,7 @@ interface DashboardTableProps {
 
 const DashboardTable: FC<DashboardTableProps> = ({ statistic }) => {
   const tableData = convertToArrays(statistic)
+  const duplicatedArray = Array.from({ length: 5 }, () => tableData).flat()
 
   const headers = tableHeaders.map((header) => {
     if (header === 'Limited' || header === '№ Operations' || header === 'Options') {
@@ -42,19 +43,7 @@ const DashboardTable: FC<DashboardTableProps> = ({ statistic }) => {
         <Table>
           <tbody>
             <TableHeaders>{headers}</TableHeaders>
-            {tableData.map((rowData) => (
-              <TableRow key={nanoid()} rowData={rowData} />
-            ))}
-            {tableData.map((rowData) => (
-              <TableRow key={nanoid()} rowData={rowData} />
-            ))}
-            {tableData.map((rowData) => (
-              <TableRow key={nanoid()} rowData={rowData} />
-            ))}
-            {tableData.map((rowData) => (
-              <TableRow key={nanoid()} rowData={rowData} />
-            ))}
-            {tableData.map((rowData) => (
+            {duplicatedArray.map((rowData) => (
               <TableRow key={nanoid()} rowData={rowData} />
             ))}
           </tbody>
