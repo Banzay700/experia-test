@@ -16,6 +16,7 @@ export default createGlobalStyle`
     font-family: ${({ theme }) => theme.font.primary};
     background-color: ${({ theme }) => theme.background.primary}; 
     color: ${({ theme }) => theme.palette.white};
+    overflow: hidden;
   }
 
   a {

@@ -1,37 +1,43 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import { FC } from 'react'
-import { useTheme } from 'styled-components'
-import { Typography } from 'UI'
-import { Box, Flex } from 'UI/containers'
-import { Item, ItemWrapper, LegendWrapper } from './CustomLegend.styled'
-import { COLORS } from '../DashboardAreaChart'
+import { FC, useEffect, useState } from 'react'
+
+import { LegendWrapper } from './CustomLegend.styled'
+import { COLORS } from '../DashboardAreaChart.utils'
+import { LegendItem } from './legend-item'
 
 const CustomLegend: FC<any> = ({ payload, onClick }) => {
-  const { palette } = useTheme()
-  const handleClick = (entry: string) => {
-    onClick(entry.value)
+  const [values, setValues] = useState<string[]>([])
+
+  const handleClick = (value: string) => {
+    if (values.includes(value)) {
+      const newValues = values.filter((item) => item !== value)
+      setValues(newValues)
+      onClick(newValues)
+    } else {
+      onClick([...values, value])
+      setValues([...values, value])
+    }
   }
+
+  useEffect(() => {
+    if (values.length === 0) {
+      const chartValues = payload.map((item) => item.value)
+      setValues(chartValues)
+    }
+  }, [values, payload])
+
   return (
     <LegendWrapper direction="column">
-      {payload.map((entry, index) => {
-        const color = COLORS[index % COLORS.length]
-        const isClicked = entry.value === 'clicked'
-
-        return (
-          <Flex gap="16px" key={entry.dataKey} onClick={() => handleClick(entry)}>
-            <ItemWrapper borderColor={color}>
-              <Item background={color} />
-            </ItemWrapper>
-            <Flex direction="column" gap="1px" paddingTop="1px">
-              <Typography variant="subtitle1">Rating</Typography>
-              <Typography variant="subtitle3" color={palette.darkWhite}>
-                116 sales
-              </Typography>
-            </Flex>
-          </Flex>
-        )
-      })}
+      {payload.map((entry, index) => (
+        <LegendItem
+          key={entry.dataKey}
+          value={entry.value}
+          isChecked={values.includes(entry.value)}
+          color={COLORS[index % COLORS.length]}
+          onClick={handleClick}
+        />
+      ))}
     </LegendWrapper>
   )
 }

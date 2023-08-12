@@ -3,6 +3,7 @@ export const baseTheme = {
     primary: '#8941FF',
     secondary: '#3CDC86',
     pink: '#ED2D95',
+    yellow: '#f4a732',
     white: '#fff',
     darkWhite: '#FFFFFF99',
     test: 'rgba(255,255,255,0.05)',

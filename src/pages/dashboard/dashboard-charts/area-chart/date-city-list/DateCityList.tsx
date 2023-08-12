@@ -15,7 +15,7 @@ interface DateCityListProps {
 const DateCityList: FC<DateCityListProps> = ({ cityListData }) => {
   const { palette } = useTheme()
   return (
-    <Flex direction="column" gap="19px" paddingRight="100px" paddingTop="12px">
+    <Flex direction="column" gap="19px" paddingRight="8px" paddingTop="12px">
       {cityListData.map((item) => (
         <Flex key={nanoid()} direction="column" paddingRight="32px" gap="2px">
           <Typography variant="subtitle1">{item.name}</Typography>

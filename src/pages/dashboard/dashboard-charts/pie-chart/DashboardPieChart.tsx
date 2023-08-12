@@ -35,7 +35,7 @@ const DashboardPieChart = () => {
       <DataBlockHeader title="Game Stats">
         <Dropdown data={mockData} viewType="radio" subtitle="Location" />
       </DataBlockHeader>
-      <Box height="100%" position="relative">
+      <Flex maxHeight="296px" height="100%" position="relative">
         <ChartSummary />
         <ResponsiveContainer height="100%" width={265}>
           <PieChart>
@@ -53,7 +53,7 @@ const DashboardPieChart = () => {
             />
           </PieChart>
         </ResponsiveContainer>
-      </Box>
+      </Flex>
     </Flex>
   )
 }

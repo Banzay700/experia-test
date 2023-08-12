@@ -49,22 +49,10 @@ const DashboardTable: FC<DashboardTableProps> = ({ statistic }) => {
             ))}
             {tableData.map((rowData) => (
               <TableRow key={nanoid()} rowData={rowData} />
-            ))}{' '}
+            ))}
             {tableData.map((rowData) => (
               <TableRow key={nanoid()} rowData={rowData} />
-            ))}{' '}
-            {tableData.map((rowData) => (
-              <TableRow key={nanoid()} rowData={rowData} />
-            ))}{' '}
-            {tableData.map((rowData) => (
-              <TableRow key={nanoid()} rowData={rowData} />
-            ))}{' '}
-            {tableData.map((rowData) => (
-              <TableRow key={nanoid()} rowData={rowData} />
-            ))}{' '}
-            {tableData.map((rowData) => (
-              <TableRow key={nanoid()} rowData={rowData} />
-            ))}{' '}
+            ))}
             {tableData.map((rowData) => (
               <TableRow key={nanoid()} rowData={rowData} />
             ))}
