@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useState } from 'react'
 import { useTheme } from 'styled-components'
 import {
   XAxis,
@@ -16,8 +16,7 @@ import { DateCityDataType, ChartDataType } from 'types'
 import { Flex } from 'UI/containers'
 import { DateCityList } from './date-city-list'
 import { CustomLegend } from './custom-legend'
-import { dropdownMockData, COLORS } from './DashboardAreaChart.utils'
-import { filterChartData } from 'pages/dashboard/Dashboard.utils'
+import { dropdownMockData, areaConfig, filterChartData, COLORS } from './DashboardAreaChart.utils'
 
 interface DashboardAreaChartProps {
   chartData: ChartDataType[]
@@ -29,16 +28,9 @@ const DashboardAreaChart: FC<DashboardAreaChartProps> = ({ chartData, cityListDa
   const { palette } = useTheme()
 
   const handleLegendClick = (values: string[]) => {
-    // const filteredData = filterChartData(chartData, values)
-    console.log(chartData)
+    const filteredData = filterChartData(chartData, values)
 
-    console.log(values)
-  }
-
-  const areaConfig = {
-    strokeWidth: 2,
-    dot: { strokeWidth: 5, r: 2 },
-    type: 'monotone' as const,
+    setData(filteredData)
   }
 
   return (
@@ -56,7 +48,7 @@ const DashboardAreaChart: FC<DashboardAreaChartProps> = ({ chartData, cityListDa
                   <stop
                     offset="100%"
                     stopColor={color}
-                    stopOpacity={index === array.length - 1 ? 0.2 : 0.0}
+                    stopOpacity={index === array.length - 1 ? 0.3 : 0}
                   />
                 </linearGradient>
               ))}

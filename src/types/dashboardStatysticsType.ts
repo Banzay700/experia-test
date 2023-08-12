@@ -7,9 +7,11 @@ export type StatisticType = {
 }
 
 export type ChartDataType = {
-  blue: number
-  red: number
-  green: number
+  blue?: number
+  red?: number
+  green?: number
+  purple?: number
+  yellow?: number
   date: string
 }
 

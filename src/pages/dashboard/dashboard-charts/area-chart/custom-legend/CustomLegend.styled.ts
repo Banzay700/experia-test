@@ -3,8 +3,8 @@ import { Flex } from 'UI/containers'
 
 export const LegendWrapper = styled(Flex)`
   position: absolute;
-  bottom: 17px;
+  bottom: 22px;
   right: -130px;
   list-style: none;
-  gap: 20px;
+  gap: 19px;
 `

@@ -1,15 +1,3 @@
-export function filterChartData(chartData, excludedColors) {
-  return chartData.map((dataPoint) => {
-    const newDataPoint = {}
-    for (const color in dataPoint) {
-      if (!excludedColors.includes(color)) {
-        newDataPoint[color] = dataPoint[color]
-      }
-    }
-    return newDataPoint
-  })
-}
-
 export const areaChartData = [
   {
     blue: 8,

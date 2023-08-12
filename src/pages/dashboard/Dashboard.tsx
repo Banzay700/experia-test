@@ -16,7 +16,7 @@ const Dashboard = () => {
           {isSuccess && <DashboardAreaChart chartData={areaChartData} cityListData={data.users} />}
           <DashboardPieChart />
         </Flex>
-        <Flex background="secondary" gap="16px" height="100%" maxHeight="calc(100vh - 600px)">
+        <Flex background="secondary" gap="16px" height="100%" maxHeight="calc(100vh - 592px)">
           {isSuccess && <DashboardTable statistic={data.general_sales_time} />}
         </Flex>
       </Flex>

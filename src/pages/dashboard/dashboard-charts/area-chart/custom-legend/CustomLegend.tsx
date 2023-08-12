@@ -12,7 +12,8 @@ const CustomLegend: FC<any> = ({ payload, onClick }) => {
   const handleClick = (value: string) => {
     if (values.includes(value)) {
       const newValues = values.filter((item) => item !== value)
-      setValues(newValues)
+
+      setValues([...newValues])
       onClick(newValues)
     } else {
       onClick([...values, value])

@@ -1,8 +1,8 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts'
 import { nanoid } from 'nanoid'
-import { Box, Flex } from 'UI/containers'
-import { DataBlockHeader } from 'components/data-block-header'
-import { Dropdown } from 'UI/dropdown'
+import { DataBlockHeader } from 'components'
+import { Dropdown } from 'UI'
+import { Flex } from 'UI/containers'
 import {
   COLORS,
   legendWrapperStyle,
