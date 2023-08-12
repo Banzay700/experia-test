@@ -1,28 +1,50 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts'
+import { FC, useEffect, useState } from 'react'
 import { nanoid } from 'nanoid'
 import { DataBlockHeader } from 'components'
 import { Dropdown } from 'UI'
 import { Flex } from 'UI/containers'
+import { PieChartDataPointType, PieChartDataType } from 'types'
 import {
   COLORS,
   legendWrapperStyle,
   legendTypographyStyles,
   pieChartConfig,
+  prepareChartData,
 } from './DashboardPieChat.utls'
 import { ChartSummary } from './chart-summary'
 
-const mockData = ['Charlottetown', 'Halifax', 'Naperville', 'Vernon', 'Montreal']
+interface DashboardPieChartProps {
+  data: PieChartDataType[]
+}
 
-const data = [
-  { name: 'Roles', value: 400 },
-  { name: 'Users', value: 300 },
-  { name: 'Policies', value: 300 },
-]
+const DashboardPieChart: FC<DashboardPieChartProps> = ({ data }) => {
+  const [selectedLocation, setSelectedLocation] = useState<string>('')
+  const [chartData, setChartData] = useState<PieChartDataPointType[]>([])
+  const [dropdownHeaders, setDropdownHeaders] = useState<string[]>([])
 
-const DashboardPieChart = () => {
+  const handleLocationChange = (value: string[]) => {
+    const { flattenedData, headers } = prepareChartData(data)
+    const index = headers.findIndex((header) => header === value[0])
+    const dta = flattenedData[index] || []
+
+    setSelectedLocation(value[0])
+    setChartData(dta)
+  }
+
   const renderColorfulLegendText = (value: string) => {
     return <span style={legendTypographyStyles}>{value}</span>
   }
+
+  useEffect(() => {
+    if (chartData.length === 0) {
+      const { initialData, headers } = prepareChartData(data)
+
+      setDropdownHeaders(headers)
+      setSelectedLocation(headers[0])
+      setChartData(initialData)
+    }
+  }, [data, chartData.length])
 
   return (
     <Flex
@@ -33,14 +55,20 @@ const DashboardPieChart = () => {
       borderRadius="4px"
       overflow="hidden">
       <DataBlockHeader title="Game Stats">
-        <Dropdown data={mockData} viewType="radio" subtitle="Location" />
+        <Dropdown
+          data={dropdownHeaders}
+          viewType="radio"
+          subtitle="Location"
+          defaultValue={selectedLocation}
+          onSelect={handleLocationChange}
+        />
       </DataBlockHeader>
       <Flex maxHeight="296px" height="100%" position="relative">
         <ChartSummary />
         <ResponsiveContainer height="100%" width={265}>
           <PieChart>
-            <Pie data={data} {...pieChartConfig}>
-              {data.map((entry, index) => (
+            <Pie data={chartData} {...pieChartConfig}>
+              {chartData.map((entry, index) => (
                 <Cell key={nanoid()} fill={COLORS[index % COLORS.length]} />
               ))}
             </Pie>

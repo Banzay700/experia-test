@@ -33,7 +33,8 @@ const DashboardTable: FC<DashboardTableProps> = ({ statistic }) => {
         <Dropdown
           data={tableHeaders}
           viewType="toggle"
-          title="Table settings"
+          defaultValue="Table settings"
+          onSelect={() => {}}
           icon={<DashboardIcon.Settings />}
         />
       </DataBlockHeader>

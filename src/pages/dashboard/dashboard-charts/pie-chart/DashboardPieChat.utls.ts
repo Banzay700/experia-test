@@ -1,4 +1,14 @@
 import { baseTheme } from 'styles'
+import { capitalizeFirstLetter } from 'utils'
+import { PieChartDataType } from 'types/dashboardPieChartDataType'
+
+export const prepareChartData = (data: PieChartDataType[]) => {
+  const headers = Object.keys(data).map((cityName) => capitalizeFirstLetter(cityName))
+  const flattenedData = Object.values(data)
+  const initialData = flattenedData[0]
+
+  return { headers, flattenedData, initialData }
+}
 
 export const COLORS = [baseTheme.palette.pink, baseTheme.palette.secondary, baseTheme.palette.blue]
 
