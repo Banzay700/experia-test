@@ -4,7 +4,7 @@ export const COLORS = [baseTheme.palette.pink, baseTheme.palette.secondary, base
 
 export const pieChartConfig = {
   cx: 142,
-  cy: 144,
+  cy: 133,
   innerRadius: 95,
   outerRadius: 116,
   paddingAngle: 5,

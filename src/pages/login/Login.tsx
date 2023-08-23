@@ -7,9 +7,9 @@ import { LoginFormTypes, SignupFormTypes } from 'types'
 import { useUserReducer } from 'hooks'
 import { getJwtFromCookie } from 'utils'
 import { Button, Typography } from 'UI'
-import { Container, Flex } from 'UI/containers'
 import { useCreateUserMutation, useLoginMutation } from 'store/api'
 import { LoginForm, SignupForm } from 'components/forms'
+import { Container, Flex } from '../../UI/containers'
 
 const Login = () => {
   const [isSignUp, setIsSignUp] = useState(false)

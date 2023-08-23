@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { Flex } from 'UI/containers'
+import { Flex } from '../../../../../UI/containers'
 
 export const ChartTitleWrapper = styled(Flex)`
-  left: 85px;
+  left: 84px;
   position: absolute;
-  top: 82px;
+  top: 77px;
   max-width: 130px;
 `

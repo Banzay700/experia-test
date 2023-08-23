@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useTheme } from 'styled-components'
 import { Typography } from 'UI'
 import { capitalizeFirstLetter } from 'utils'
-import { Flex } from 'UI/containers'
+import { Flex } from '../../../../../../UI/containers'
 import { Item, ItemWrapper } from './LegendItem.styled'
 
 interface LegendItemProps {

@@ -15,4 +15,4 @@ export type {
   ChartDataType,
 } from './dashboardStatysticsType'
 export type { DropdownItemType, DropdownViewType } from './dropdownType'
-export type { PieChartDataType } from './dashboardPieChartDataType'
+export type { PieChartDataType, PieChartSummaryDataType } from './dashboardPieChartDataType'

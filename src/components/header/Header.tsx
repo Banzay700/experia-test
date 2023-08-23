@@ -1,7 +1,7 @@
 import { Typography } from 'UI'
 import { useGetPageHeading, useUserReducer } from 'hooks'
 import { Avatar } from 'components/avatar'
-import { Flex } from 'UI/containers'
+import { Flex } from '../../UI/containers'
 
 const Header = () => {
   const { userData, userLogout } = useUserReducer()

@@ -1,8 +1,8 @@
 import { FC, ReactNode } from 'react'
 import { useTheme } from 'styled-components'
-import { Flex } from 'UI/containers'
 import { Typography } from 'UI'
 import { DashboardIcon } from 'assets'
+import { Flex } from '../../containers'
 
 interface DropdownHeaderProps {
   title: string

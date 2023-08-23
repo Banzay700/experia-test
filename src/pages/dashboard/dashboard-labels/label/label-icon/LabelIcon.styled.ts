@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Flex } from 'UI/containers'
+import { Flex } from '../../../../../UI/containers'
 
 interface WrapperProps {
   backgroundColor: string

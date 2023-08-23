@@ -1,5 +1,5 @@
 import { NavbarLink } from 'UI'
-import { Flex } from 'UI/containers'
+import { Flex } from '../../../UI/containers'
 import { navbarLinks } from './Nav.utils'
 
 const Nav = () => {

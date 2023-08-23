@@ -1,6 +1,6 @@
 import { FC, ReactNode } from 'react'
 import { useTheme } from 'styled-components'
-import { Typography } from 'UI/index'
+import { Typography } from 'UI'
 import { Flex } from 'UI/containers'
 import { Wrapper } from './Label.styled'
 import { LabelIcon } from './label-icon'

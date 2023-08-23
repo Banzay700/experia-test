@@ -6,7 +6,6 @@ export const baseTheme = {
     yellow: '#f4a732',
     white: '#fff',
     darkWhite: '#FFFFFF99',
-    test: 'rgba(255,255,255,0.05)',
     black: '#111216',
     gray: '#9496A6',
     lightSlateGrey: '#A2A4A8',

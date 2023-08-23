@@ -1,5 +1,12 @@
-const pieChardHeaders = ['Charlottetown', 'Halifax', 'Naperville', 'Vernon', 'Montreal']
-const pieChardData = [
+const headers = ['Charlottetown', 'Halifax', 'Naperville', 'Vernon', 'Montreal']
+const summaryData = [
+  { percentage: 85, value: '+40 418' },
+  { percentage: 15, value: '+10 418' },
+  { percentage: 25, value: '+24 418' },
+  { percentage: 45, value: '+ 29 892' },
+  { percentage: 87, value: '+ 39 123' },
+]
+const chartData = [
   [
     { name: 'Roles', value: 244 },
     { name: 'Users', value: 124 },
@@ -28,6 +35,7 @@ const pieChardData = [
 ]
 
 export const pieChardDataMock = {
-  headers: pieChardHeaders,
-  chartData: pieChardData,
+  headers,
+  chartData,
+  summaryData,
 }

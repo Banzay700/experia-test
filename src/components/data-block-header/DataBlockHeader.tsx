@@ -1,7 +1,7 @@
-import { Flex } from 'UI/containers'
-import { Typography } from 'UI/typography/Typography.styled'
 import { DashboardIcon } from 'assets/index'
 import { FC, ReactNode } from 'react'
+import { Flex } from '../../UI/containers'
+import { Typography } from '../../UI/typography/Typography.styled'
 
 interface DataBlockHeaderProps {
   title: string

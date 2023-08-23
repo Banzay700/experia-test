@@ -1,4 +1,4 @@
-import { FC, ReactNode, useState } from 'react'
+import { FC, ReactNode, useEffect, useState } from 'react'
 import { DropdownViewType } from 'types'
 import { DropdownMenu, DropdownWrapper, ContentWrapper, MenuWrapper } from './Dropdown.styled'
 import { DropdownHeader } from './dropdown-header'
@@ -16,15 +16,54 @@ interface DropdownProps {
 
 const Dropdown: FC<DropdownProps> = (props) => {
   const { icon, defaultValue, subtitle, data, viewType, onSelect } = props
+
   const [dropdownMenuOpen, setDropdownMenuOpen] = useState(false)
-  const [checkedValues, setCheckedValues] = useState([data[0]])
-  const isToggle = viewType === 'toggle'
+  const [checkedValues, setCheckedValues] = useState<string[]>([])
+  const [toggleSourceChecked, setToggleSourceChecked] = useState<boolean>(false)
+
+  const isToggleView = viewType === 'toggle'
+  const isFirstToggleRender = checkedValues.length === 0
 
   const handleCheckboxChange = (value: string) => {
-    if (isToggle) getToggleValues(value, checkedValues, setCheckedValues)
-    if (!isToggle) setCheckedValues([value])
-    onSelect([value])
+    if (isToggleView) {
+      const isClickOnSource = value === 'Source'
+
+      if (isClickOnSource && toggleSourceChecked) {
+        setToggleSourceChecked(false)
+        return
+      }
+
+      if (isClickOnSource && !toggleSourceChecked) {
+        setToggleSourceChecked(true)
+        setCheckedValues([...data])
+        return
+      }
+
+      getToggleValues(value, checkedValues, setCheckedValues)
+      onSelect([...checkedValues])
+      setToggleSourceChecked(false)
+    }
+
+    if (!isToggleView) {
+      setCheckedValues([value])
+      onSelect([value])
+    }
   }
+
+  useEffect(() => {
+    if (!isToggleView) {
+      setCheckedValues([data[0]])
+    }
+
+    if (isToggleView && isFirstToggleRender) {
+      setToggleSourceChecked(true)
+      setCheckedValues([...data])
+    }
+
+    if (isToggleView && !isFirstToggleRender) {
+      onSelect([...checkedValues])
+    }
+  }, [checkedValues.length, isToggleView, isFirstToggleRender]) // eslint-disable-line
 
   return (
     <DropdownWrapper
@@ -42,13 +81,13 @@ const Dropdown: FC<DropdownProps> = (props) => {
         <MenuWrapper>
           <DropdownMenu viewType={viewType}>
             <ContentWrapper>
-              {isToggle && (
+              {isToggleView && (
                 <DropdownItem
                   viewType={viewType}
                   title="Source"
                   name="Source"
                   value="Source"
-                  checked={checkedValues.includes('Source')}
+                  checked={toggleSourceChecked}
                   onChange={() => handleCheckboxChange('Source')}
                 />
               )}

@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Typography } from 'UI'
-import { Flex } from 'UI/containers'
 import { ReactComponent as AvatarIcon } from 'assets/avatar.svg'
+import { Flex } from '../../UI/containers'
 import { AvatarIconWrapper } from './Avatar.styled'
 
 interface AvatarProps {
@@ -10,8 +10,8 @@ interface AvatarProps {
 }
 const Avatar: FC<AvatarProps> = ({ username, onClick }) => {
   return (
-    <Flex flxStart gap="12px" onClick={onClick} background="secondary">
-      <AvatarIconWrapper>
+    <Flex flxStart gap="12px" background="secondary">
+      <AvatarIconWrapper onClick={onClick} title="Logout">
         <AvatarIcon />
       </AvatarIconWrapper>
       <Typography variant="h6" fontWeight={500}>

@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { useTheme } from 'styled-components'
 import { nanoid } from 'nanoid'
 import { Typography } from 'UI'
-import { Flex } from 'UI/containers'
+import { Flex } from '../../../../../UI/containers'
 
 type DateCityListType = {
   name: string

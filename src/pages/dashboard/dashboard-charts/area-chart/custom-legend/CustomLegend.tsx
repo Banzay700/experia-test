@@ -1,12 +1,15 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
 import { FC, useEffect, useState } from 'react'
 
 import { LegendWrapper } from './CustomLegend.styled'
 import { COLORS } from '../DashboardAreaChart.utils'
 import { LegendItem } from './legend-item'
 
-const CustomLegend: FC<any> = ({ payload, onClick }) => {
+interface CustomLegendProps {
+  payload?: { value: string; dataKey: string }[]
+  onClick: (values: string[]) => void
+}
+
+const CustomLegend: FC<CustomLegendProps> = ({ payload, onClick }) => {
   const [values, setValues] = useState<string[]>([])
 
   const handleClick = (value: string) => {
@@ -23,14 +26,17 @@ const CustomLegend: FC<any> = ({ payload, onClick }) => {
 
   useEffect(() => {
     if (values.length === 0) {
-      const chartValues = payload.map((item) => item.value)
-      setValues(chartValues)
+      const chartValues = payload?.map((item) => item.value)
+
+      if (chartValues) {
+        setValues(chartValues)
+      }
     }
   }, [values, payload])
 
   return (
     <LegendWrapper direction="column">
-      {payload.map((entry, index) => (
+      {payload?.map((entry, index) => (
         <LegendItem
           key={entry.dataKey}
           value={entry.value}

@@ -1,4 +1,4 @@
-import { DashboardIcon } from 'assets/index'
+import { DashboardIcon } from 'assets'
 import { StatisticType } from 'types/dashboardStatysticsType'
 
 export const labelsStyleData = [

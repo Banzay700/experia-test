@@ -45,7 +45,7 @@ const DashboardAreaChart: FC<DashboardAreaChartProps> = ({ chartData, cityListDa
       </DataBlockHeader>
       <Flex height="100%" paddingTop="16px" gap="15.5%" padding="16px 0 0 14px">
         <ResponsiveContainer width="100%" height={259}>
-          <AreaChart data={data} syncId="anyId">
+          <AreaChart data={data} syncId="Id">
             <defs>
               {COLORS.map((color, index, array) => (
                 <linearGradient key={color} id={`color${index}`} x1="0" y1="0" x2="0" y2="1">

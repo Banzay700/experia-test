@@ -3,8 +3,8 @@ import { FC, useState } from 'react'
 import { nanoid } from 'nanoid'
 import { DataBlockHeader } from 'components'
 import { Dropdown } from 'UI'
-import { Flex } from 'UI/containers'
 import { PieChartDataType } from 'types'
+import { Flex } from '../../../../UI/containers'
 import {
   COLORS,
   legendWrapperStyle,
@@ -20,13 +20,16 @@ interface DashboardPieChartProps {
 const DashboardPieChart: FC<DashboardPieChartProps> = ({ data }) => {
   const [selectedLocation, setSelectedLocation] = useState<string>(data.headers[0])
   const [chartData, setChartData] = useState(data.chartData[0])
+  const [summaryData, setSummaryData] = useState(data.summaryData[0])
 
   const handleLocationChange = (value: string[]) => {
     const index = data.headers.findIndex((header) => header === value[0])
     const dta = data.chartData[index]
+    const summary = data.summaryData[index]
 
     setSelectedLocation(value[0])
     setChartData(dta)
+    setSummaryData(summary)
   }
 
   const renderColorfulLegendText = (value: string) => {
@@ -51,7 +54,7 @@ const DashboardPieChart: FC<DashboardPieChartProps> = ({ data }) => {
         />
       </DataBlockHeader>
       <Flex maxHeight="296px" height="100%" position="relative">
-        <ChartSummary />
+        <ChartSummary data={summaryData} />
         <ResponsiveContainer height="100%" width={265}>
           <PieChart>
             <Pie data={chartData} {...pieChartConfig}>

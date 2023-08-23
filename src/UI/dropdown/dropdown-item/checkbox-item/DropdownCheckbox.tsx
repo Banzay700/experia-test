@@ -1,6 +1,6 @@
 import { DashboardIcon } from 'assets'
 import { FC } from 'react'
-import { Flex } from 'UI/containers'
+import { Flex } from '../../../containers'
 
 interface DropdownCheckboxProps {
   isChecked: boolean

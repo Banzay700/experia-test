@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { useTheme } from 'styled-components'
 import { Typography } from 'UI'
-import { Flex } from 'UI/containers'
+import { Flex } from '../../UI/containers'
 
 interface LoginHeadingProps {
   isSignUp: boolean
