@@ -1,4 +1,4 @@
-import { ReactComponent as Logo } from 'assets/logo.svg'
+import Logo from 'assets/logo.svg?react'
 import { SidebarWrapper } from './Sidebar.styled'
 import { Nav } from './nav'
 

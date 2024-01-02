@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { Typography } from 'UI'
-import { ReactComponent as AvatarIcon } from 'assets/avatar.svg'
+import AvatarIcon from 'assets/avatar.svg?react'
 import { Flex } from '../../UI/containers'
 import { AvatarIconWrapper } from './Avatar.styled'
 

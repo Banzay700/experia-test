@@ -1,10 +1,10 @@
 import { ROUTES } from 'routes'
-import { ReactComponent as DashboardIcon } from 'assets/dashboard.svg'
-import { ReactComponent as CardIcon } from 'assets/cards.svg'
-import { ReactComponent as ProductIcon } from 'assets/product.svg'
-import { ReactComponent as HeartIcon } from 'assets/heart.svg'
-import { ReactComponent as GamesIcon } from 'assets/games.svg'
-import { ReactComponent as SettingsIcon } from 'assets/settings.svg'
+import DashboardIcon from 'assets/dashboard.svg?react'
+import CardIcon from 'assets/cards.svg?react'
+import ProductIcon from 'assets/product.svg?react'
+import HeartIcon from 'assets/heart.svg?react'
+import GamesIcon from 'assets/games.svg?react'
+import SettingsIcon from 'assets/settings.svg?react'
 
 export const navbarLinks = [
   {
